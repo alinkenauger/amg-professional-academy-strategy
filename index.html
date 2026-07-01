@@ -922,7 +922,7 @@
         <span>Primary paths</span>
       </div>
       <div class="metric">
-        <strong>31</strong>
+        <strong>36</strong>
         <span>Clickable offers</span>
       </div>
       <div class="metric">
@@ -942,11 +942,13 @@
         <p>Develops AMG-certified instructors who can diagnose, teach, market, sell, retain students, prove outcomes, and eventually become placement-eligible.</p>
         <div class="path-steps" aria-label="Instructor path stages">
           <span>Shared Core</span>
-          <span>Technical Certification</span>
+          <span>Level 1</span>
+          <span>Curriculum Gate</span>
+          <span>Level 2</span>
           <span>Business of Golf</span>
-          <span>Certified Instructor</span>
-          <span>Elite Instructor</span>
-          <span>Placement Eligible</span>
+          <span>Level 3</span>
+          <span>Level 4</span>
+          <span>Level 5 Placement</span>
         </div>
         <button class="path-action" data-path-filter="instructor">View Instructor Path</button>
       </article>
@@ -1085,13 +1087,59 @@
         notes: "This is the likely flagship entry certification because it gives immediate practical value to any instructor."
       },
       {
+        id: "core-swing-concepts-curriculum",
+        category: "instructor",
+        path: "Level 1 to Level 2 Curriculum",
+        stage: "Curriculum Gate",
+        name: "Core Swing Concepts Curriculum",
+        short: "Required curriculum after Level 1 before the instructor can test into Level 2.",
+        summary: "A required post-Level-1 curriculum that builds the coach's understanding of AMG's core swing model before they attempt the deeper Level 2 mechanics credential.",
+        price: "$997-$1,997, or included in a Level 2 cohort bundle",
+        maintenance: "No standalone annual maintenance. Completion remains valid while Level 1 status is active.",
+        credibility: "Module quizzes, concept-mapping assignments, and a passing score before Level 2 exam eligibility.",
+        delivery: "Self-paced curriculum, workbook, concept checks, model-swing breakdowns, and optional live Q&A.",
+        buyerGets: [
+          "AMG model-swing curriculum.",
+          "Core body, arms, club, pressure, strike, and ball-flight concepts.",
+          "Eligibility to enter the Level 2 testing track."
+        ],
+        dependencies: [
+          "Requires Level 1 Swing Assessment Certified.",
+          "Should be completed before any Level 2 exam or Level 2 live cohort."
+        ],
+        notes: "This fixes the ladder. Level 1 should not jump straight into Level 2. The curriculum between them is where the real learning happens."
+      },
+      {
+        id: "assessment-to-plan-lab",
+        category: "instructor",
+        path: "Level 1 to Level 2 Curriculum",
+        stage: "Curriculum Gate",
+        name: "Assessment to Coaching Plan Lab",
+        short: "Required application lab turning Level 1 diagnosis into a coached improvement plan.",
+        summary: "A practical lab where instructors submit assessments, prioritize the constraint, write the coaching plan, and receive feedback before moving into Level 2 mechanics.",
+        price: "$750-$1,500, or included in a Level 2 cohort bundle",
+        maintenance: "No standalone annual maintenance. Case submissions can support active status renewal.",
+        credibility: "Three assessment-to-plan submissions reviewed against AMG standards.",
+        delivery: "Submission lab, reviewed assignments, office hours, and rubric-based feedback.",
+        buyerGets: [
+          "Rubric for turning diagnosis into instruction.",
+          "Reviewed assessment-to-plan submissions.",
+          "Cleaner bridge from Level 1 knowledge to Level 2 mechanics."
+        ],
+        dependencies: [
+          "Requires Level 1.",
+          "Pairs with Core Swing Concepts Curriculum before Level 2 eligibility."
+        ],
+        notes: "This prevents Level 2 from becoming theory-only. Coaches must show they can turn assessment into a plan."
+      },
+      {
         id: "level-2-core-mechanics",
         category: "instructor",
         path: "Instructor Technical Certification",
         stage: "Level 2",
         name: "Core Mechanics Certified",
-        short: "Deep AMG swing mechanics training across body, arms, club, pressure, face, path, speed, and strike.",
-        summary: "The deep TPI-style instructor path for AMG, built around the complete swing model and the ability to explain cause, compensation, and priority.",
+        short: "Deep AMG swing mechanics credential earned after Level 1 curriculum gates.",
+        summary: "The deep TPI-style instructor credential for AMG, built around the complete swing model and the ability to explain cause, compensation, and priority.",
         price: "$2,500-$4,500",
         maintenance: "$299-$699 per year when held as an active instructor credential.",
         credibility: "Mechanics exam, diagnosis exam, teaching-video review, and five case studies.",
@@ -1100,11 +1148,12 @@
           "Full AMG mechanics curriculum.",
           "Fault-to-fix decision trees.",
           "Teaching language for complex swing concepts.",
-          "Eligibility for specialist badges."
+          "Eligibility for Level 2-to-Level 3 specialist curriculum."
         ],
         dependencies: [
           "Requires Level 1 active or recently completed.",
-          "Requires case-study evidence from real or sample students."
+          "Requires Core Swing Concepts Curriculum.",
+          "Requires Assessment to Coaching Plan Lab."
         ],
         notes: "This should become the main premium instructor certification and biggest strategic opportunity."
       },
@@ -1319,67 +1368,140 @@
         id: "amg-certified-instructor",
         category: "instructor",
         path: "Instructor Status Tier",
-        stage: "Status",
-        name: "AMG Certified Instructor",
-        short: "The core credential after technical and business gates are met.",
-        summary: "A status tier for instructors who have completed the core education, passed exams, submitted teaching evidence, and shown basic business competency.",
+        stage: "Level 3",
+        name: "Level 3: AMG Certified Instructor",
+        short: "The core professional credential after Level 2, specialist curriculum, business curriculum, and teaching evidence.",
+        summary: "The first full AMG instructor status tier. Instructors reach Level 3 after Level 2, required specialist work, Business of Golf modules, teaching evidence, and case-study review.",
         price: "$500-$1,000 application/exam fee if not bundled",
         maintenance: "$399-$799 per year for active status, directory listing, badge usage, CE, and standards review.",
-        credibility: "Level 1, Level 2, at least one business module, teaching-video review, case studies, and code of conduct.",
+        credibility: "Level 1, Level 2, required specialist curriculum, required Business of Golf modules, teaching-video review, case studies, and code of conduct.",
         delivery: "Application review, exam, teaching review, badge, directory profile, and renewal portal.",
         buyerGets: [
-          "AMG Certified Instructor badge.",
+          "Level 3 AMG Certified Instructor badge.",
           "Directory listing while active.",
-          "Eligibility for Elite review after proof threshold."
+          "Eligibility for Level 4 proof and elite review."
         ],
         dependencies: [
-          "Requires technical and business training.",
+          "Requires Level 2.",
+          "Requires specialist curriculum.",
+          "Requires required Business of Golf instructor-growth modules.",
           "Requires current standards agreement."
         ],
-        notes: "This is the primary public-facing instructor credential. It must stay selective enough to mean something."
+        notes: "This is the primary public-facing instructor credential. It must stay selective enough to mean something, and it should clearly sit at Level 3."
+      },
+      {
+        id: "case-study-practicum",
+        category: "instructor",
+        path: "Level 3 to Level 4 Curriculum",
+        stage: "Curriculum Gate",
+        name: "Student Case Study Practicum",
+        short: "Required proof curriculum after Level 3 before elite review.",
+        summary: "A supervised proof-building curriculum where instructors document real student progress, explain their decisions, and show that their coaching process works outside of theory.",
+        price: "$1,500-$3,000, or included in an Elite review cohort",
+        maintenance: "Case evidence can be reused for annual active status if current and approved.",
+        credibility: "Multiple student case studies with intake, plan, intervention, evidence, outcome, and coach reflection.",
+        delivery: "Case-study templates, submission portal, review calls, rubric feedback, and proof library.",
+        buyerGets: [
+          "Case-study documentation system.",
+          "Reviewed student proof.",
+          "Eligibility for Level 4 elite review."
+        ],
+        dependencies: [
+          "Requires Level 3 AMG Certified Instructor.",
+          "Requires access to real students and permission to document results."
+        ],
+        notes: "This is where the ladder stops being content consumption and becomes professional proof."
+      },
+      {
+        id: "live-teaching-defense-lab",
+        category: "instructor",
+        path: "Level 3 to Level 4 Curriculum",
+        stage: "Curriculum Gate",
+        name: "Live Teaching Defense Lab",
+        short: "Required live-teaching review before Level 4 elite status.",
+        summary: "A live or recorded teaching-defense lab where instructors explain their diagnosis, defend their plan, handle follow-up questions, and demonstrate communication quality.",
+        price: "$1,000-$2,500, or included in an Elite review cohort",
+        maintenance: "A fresh teaching defense can be required for higher-level renewal or after long inactive periods.",
+        credibility: "Live defense, teaching-video review, communication rubric, and reviewer approval.",
+        delivery: "Recorded teaching submission, live review panel, rubric feedback, and pass/fail status.",
+        buyerGets: [
+          "Teaching-video review.",
+          "Diagnosis and plan defense.",
+          "Clear readiness signal for Level 4."
+        ],
+        dependencies: [
+          "Requires Level 3.",
+          "Pairs with Student Case Study Practicum."
+        ],
+        notes: "Elite status needs a human judgment gate. Some things cannot be certified by quiz."
       },
       {
         id: "amg-elite-instructor",
         category: "instructor",
         path: "Instructor Status Tier",
-        stage: "Elite",
-        name: "AMG Elite Instructor",
-        short: "Advanced status for proven instructors with documented results.",
-        summary: "A higher-status tier for instructors who show repeated student outcomes, strong communication, and the ability to represent AMG in premium environments.",
+        stage: "Level 4",
+        name: "Level 4: AMG Elite Instructor",
+        short: "Advanced status for proven instructors with documented results and live teaching review.",
+        summary: "A higher-status tier for instructors who show repeated student outcomes, strong communication, live teaching quality, and the ability to represent AMG in premium environments.",
         price: "$1,000-$2,500 review fee or invite-only cohort",
         maintenance: "$799-$1,500 per year, including deeper review, CE, and active performance standards.",
-        credibility: "Multiple verified case studies, teaching-video defense, business results, references, and AMG review board approval.",
+        credibility: "Level 3, multiple verified case studies, teaching-video defense, business results, references, and AMG review board approval.",
         delivery: "Portfolio review, live defense, badge, directory tier, and network eligibility.",
         buyerGets: [
-          "Elite badge and directory status.",
-          "Priority for workshops and placement.",
+          "Level 4 Elite badge and directory status.",
+          "Eligibility for placement readiness.",
           "Advanced coaching calls or review sessions."
         ],
         dependencies: [
-          "Requires active AMG Certified Instructor.",
-          "Requires outcome proof over time."
+          "Requires active Level 3 AMG Certified Instructor.",
+          "Requires Student Case Study Practicum.",
+          "Requires Live Teaching Defense Lab."
         ],
-        notes: "This is the status tier that makes the placement network credible."
+        notes: "This is the status tier that makes the placement network credible. It should not be reachable by course completion alone."
+      },
+      {
+        id: "placement-readiness-curriculum",
+        category: "instructor",
+        path: "Level 4 to Level 5 Curriculum",
+        stage: "Curriculum Gate",
+        name: "Placement Readiness Curriculum",
+        short: "Required professional-readiness work before AMG recommends an instructor to a facility.",
+        summary: "A placement-readiness curriculum covering facility role expectations, reporting, compensation models, coaching department behavior, customer experience, and AMG conduct standards.",
+        price: "$500-$1,500, usually facility-funded or included in placement process",
+        maintenance: "Annual review recommended for instructors who remain in the placement network.",
+        credibility: "Facility-readiness interview, references, conduct review, sample reporting, and AMG approval.",
+        delivery: "Readiness course, role scorecard, interview, placement profile, and onboarding checklist.",
+        buyerGets: [
+          "Role-readiness standards.",
+          "Placement profile and scorecard.",
+          "Eligibility for Level 5 placement status."
+        ],
+        dependencies: [
+          "Requires Level 4 AMG Elite Instructor.",
+          "Requires active status and conduct compliance."
+        ],
+        notes: "Being a great coach is not identical to being ready for a facility role. This gate protects AMG, the instructor, and the facility."
       },
       {
         id: "placement-eligible",
         category: "network",
         path: "Instructor Placement Network",
-        stage: "Placement",
-        name: "Placement Eligible Instructor",
+        stage: "Level 5",
+        name: "Level 5: Placement Eligible Instructor",
         short: "Approved instructor status for AMG-recommended facility roles.",
-        summary: "A network status for elite instructors who meet AMG's technical, business, conduct, and professional standards for facility placement.",
+        summary: "A network status for elite instructors who complete placement readiness and meet AMG's technical, business, conduct, and professional standards for facility placement.",
         price: "No instructor fee recommended, or small application fee. Monetize primarily through facility placement economics.",
         maintenance: "Requires active Elite status, annual review, references, and conduct compliance.",
-        credibility: "Background/reference checks where appropriate, teaching proof, facility-readiness interview, and AMG approval.",
+        credibility: "Level 4, Placement Readiness Curriculum, background/reference checks where appropriate, teaching proof, facility-readiness interview, and AMG approval.",
         delivery: "Network profile, placement review, facility matching, and role-readiness standards.",
         buyerGets: [
-          "Eligibility for AMG-recommended positions.",
+          "Level 5 placement eligibility.",
           "Partner facility introductions.",
           "AMG-backed credibility in hiring conversations."
         ],
         dependencies: [
-          "Requires AMG Elite Instructor.",
+          "Requires Level 4 AMG Elite Instructor.",
+          "Requires Placement Readiness Curriculum.",
           "Requires facility role availability and market fit."
         ],
         notes: "This should be protected aggressively. If every instructor can be placed, the network loses value."
@@ -1774,19 +1896,40 @@
         className: "instructor",
         lanes: [
           {
-            title: "Technical certification sequence",
+            title: "Level 1 to Level 2 path",
             className: "instructor",
-            note: "This is the deep TPI-style path. Level 1 and Level 2 are the spine, specialist badges deepen the coach, then status gates unlock elite status.",
-            ids: ["level-1-swing-assessment", "level-2-core-mechanics"],
-            branchTitle: "Specialist curriculum / course ideas",
-            branchIds: ["ball-striking-specialist", "distance-specialist", "short-game-specialist", "tech-diagnosis-specialist"],
-            tailIds: ["amg-certified-instructor", "amg-elite-instructor"]
+            note: "Level 1 earns the assessment credential. Then the instructor completes required curriculum before they can test into Level 2.",
+            ids: ["level-1-swing-assessment"],
+            branchTitle: "Required curriculum to unlock Level 2",
+            branchIds: ["core-swing-concepts-curriculum", "assessment-to-plan-lab"],
+            tailIds: ["level-2-core-mechanics"]
           },
           {
-            title: "Placement path",
+            title: "Level 2 to Level 3 path",
+            className: "instructor",
+            note: "After Level 2, instructors deepen through specialty curriculum and required business curriculum before becoming full AMG Certified Instructors.",
+            ids: ["level-2-core-mechanics"],
+            branchTitle: "Specialty curriculum to unlock Level 3",
+            branchIds: ["ball-striking-specialist", "distance-specialist", "short-game-specialist", "tech-diagnosis-specialist"],
+            tailIds: ["amg-certified-instructor"]
+          },
+          {
+            title: "Level 3 to Level 4 path",
+            className: "instructor",
+            note: "Level 4 is not another course badge. It requires proof, live teaching review, and repeated student outcomes.",
+            ids: ["amg-certified-instructor"],
+            branchTitle: "Proof curriculum to unlock Level 4",
+            branchIds: ["case-study-practicum", "live-teaching-defense-lab"],
+            tailIds: ["amg-elite-instructor"]
+          },
+          {
+            title: "Level 4 to Level 5 placement path",
             className: "network",
-            note: "Only proven instructors move into AMG-recommended roles. This is where certification becomes talent placement.",
-            ids: ["placement-eligible", "facility-lead-instructor"]
+            note: "Only proven instructors move into AMG-recommended roles. Level 5 is placement eligibility, not just another certificate.",
+            ids: ["amg-elite-instructor"],
+            branchTitle: "Required readiness to unlock Level 5",
+            branchIds: ["placement-readiness-curriculum"],
+            tailIds: ["placement-eligible", "facility-lead-instructor"]
           },
           {
             title: "Business of Golf: Instructor Growth",
