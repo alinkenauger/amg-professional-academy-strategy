@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AMG Professional Academy Growth Chart</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #5f6b7a;
+      --paper: #f6f4ef;
+      --panel: #ffffff;
+      --line: #d9ded6;
+      --green: #1f7a5a;
+      --green-soft: #e8f4ee;
+      --gold: #b9892d;
+      --gold-soft: #fff2d6;
+      --blue: #285d8f;
+      --blue-soft: #e7f0f8;
+      --charcoal: #1f2933;
+      --charcoal-soft: #eef1f3;
+      --shadow: 0 18px 48px rgba(17, 24, 39, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(115deg, rgba(31, 122, 90, 0.08), transparent 32%),
+        linear-gradient(245deg, rgba(185, 137, 45, 0.10), transparent 34%),
+        var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .page {
+      width: 1600px;
+      height: 1000px;
+      margin: 0 auto;
+      padding: 42px 52px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 132px 1fr 250px;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .mark {
+      height: 74px;
+      border: 2px solid var(--ink);
+      display: grid;
+      place-items: center;
+      background: #ffffff;
+      box-shadow: 8px 8px 0 rgba(17, 24, 39, 0.09);
+    }
+
+    .mark strong {
+      display: block;
+      font-size: 34px;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .mark span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .audience {
+      justify-self: end;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.76);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+
+    .audience span {
+      color: var(--green);
+    }
+
+    .core {
+      display: grid;
+      grid-template-columns: 240px repeat(4, 1fr);
+      gap: 12px;
+      align-items: stretch;
+      margin-bottom: 18px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .core-title {
+      display: grid;
+      align-content: center;
+      padding: 14px 18px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .core-title small {
+      display: block;
+      margin-top: 7px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .core-item {
+      min-height: 86px;
+      padding: 14px 14px 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .core-item strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.16;
+    }
+
+    .core-item span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .paths {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .path {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      min-height: 612px;
+      position: relative;
+    }
+
+    .path.instructor {
+      border-top: 7px solid var(--green);
+    }
+
+    .path.facility {
+      border-top: 7px solid var(--blue);
+    }
+
+    .path-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 15px;
+    }
+
+    .path h2 {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .path p {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.28;
+    }
+
+    .path-tag {
+      padding: 9px 10px;
+      background: var(--charcoal-soft);
+      color: var(--charcoal);
+      border: 1px solid var(--line);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 13px;
+    }
+
+    .lane-title {
+      margin: 0 0 9px;
+      padding: 9px 10px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lane-title.green {
+      background: var(--green);
+    }
+
+    .lane-title.gold {
+      background: var(--gold);
+    }
+
+    .lane-title.blue {
+      background: var(--blue);
+    }
+
+    .steps {
+      display: grid;
+      gap: 9px;
+    }
+
+    .step {
+      min-height: 63px;
+      padding: 11px 12px 10px 52px;
+      background: #fff;
+      border: 1px solid var(--line);
+      position: relative;
+    }
+
+    .step::before {
+      content: attr(data-step);
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .instructor .technical .step::before,
+    .instructor .combined .step::before {
+      background: var(--green);
+    }
+
+    .business .step::before {
+      background: var(--gold);
+    }
+
+    .facility .step::before {
+      background: var(--blue);
+    }
+
+    .step strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.14;
+    }
+
+    .step span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.22;
+    }
+
+    .specialists {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      padding: 8px 9px;
+      background: var(--green-soft);
+      border: 1px solid rgba(31, 122, 90, 0.22);
+      color: #165a43;
+      font-size: 11px;
+      font-weight: 850;
+      line-height: 1.14;
+    }
+
+    .connector-label {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin: 13px 0;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .connector-label::before,
+    .connector-label::after {
+      content: "";
+      height: 1px;
+      background: var(--line);
+    }
+
+    .combined {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 9px;
+    }
+
+    .combined .step {
+      min-height: 86px;
+      padding-top: 12px;
+    }
+
+    .ladder {
+      display: grid;
+      gap: 9px;
+    }
+
+    .ladder .step {
+      min-height: 71px;
+    }
+
+    .milestone {
+      padding: 14px 16px;
+      border: 2px solid;
+      background: #fff;
+      min-height: 86px;
+    }
+
+    .milestone.green {
+      border-color: var(--green);
+      background: linear-gradient(180deg, #fff, var(--green-soft));
+    }
+
+    .milestone.blue {
+      border-color: var(--blue);
+      background: linear-gradient(180deg, #fff, var(--blue-soft));
+    }
+
+    .milestone.gold {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, #fff, var(--gold-soft));
+    }
+
+    .milestone strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1.12;
+    }
+
+    .milestone span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .facility-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 13px;
+    }
+
+    .facility-grid .step {
+      min-height: 77px;
+    }
+
+    .bottom-network {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 326px repeat(4, 1fr);
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid rgba(17, 24, 39, 0.18);
+      background: var(--ink);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .network-title {
+      display: grid;
+      align-content: center;
+      font-size: 22px;
+      font-weight: 950;
+      line-height: 1.06;
+    }
+
+    .network-title small {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .network-item {
+      min-height: 82px;
+      padding: 13px 13px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .network-item strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.16;
+    }
+
+    .network-item span {
+      display: block;
+      margin-top: 7px;
+      color: rgba(255, 255, 255, 0.70);
+      font-size: 11px;
+      line-height: 1.25;
+    }
+
+    .footer {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.32;
+    }
+
+    .footer strong {
+      color: var(--ink);
+    }
+
+    .version {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .arrow-down {
+      width: 100%;
+      height: 17px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 1600px;
+        height: 1000px;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" aria-label="AMG Professional Academy Growth Chart">
+    <header class="topbar">
+      <div class="mark" aria-label="Athletic Motion Golf">
+        <div>
+          <strong>AMG</strong>
+          <span>Academy</span>
+        </div>
+      </div>
+      <div>
+        <h1>Professional Academy Growth Chart</h1>
+        <p class="subtitle">A two-path certification ecosystem for instructors and indoor facility owner/operators, designed to create elite coaches, trusted facilities, and AMG-led placement opportunities.</p>
+      </div>
+      <div class="audience">
+        Built for <span>professionals</span><br>
+        Not a player-facing ladder
+      </div>
+    </header>
+
+    <section class="core" aria-label="Shared professional core">
+      <div class="core-title">
+        Shared Professional Core
+        <small>Required entry point</small>
+      </div>
+      <div class="core-item">
+        <strong>AMG Teaching Language</strong>
+        <span>Common terminology, model swings, evidence standards, and student communication.</span>
+      </div>
+      <div class="core-item">
+        <strong>Swing Assessment Standards</strong>
+        <span>Consistent intake, fault prioritization, checkpoints, and progress documentation.</span>
+      </div>
+      <div class="core-item">
+        <strong>Video, 3D, and Launch Data</strong>
+        <span>How to connect visual evidence, measured data, and actionable coaching decisions.</span>
+      </div>
+      <div class="core-item">
+        <strong>Student Outcome Tracking</strong>
+        <span>Before/after proof, case studies, retention signals, and coach accountability.</span>
+      </div>
+    </section>
+
+    <section class="paths" aria-label="Two AMG professional advancement paths">
+      <article class="path instructor">
+        <div class="path-head">
+          <div>
+            <h2>Instructor Path</h2>
+            <p>Creates AMG-certified instructors who can diagnose better, coach better, sell better, retain better, and eventually become placement-eligible.</p>
+          </div>
+          <div class="path-tag">Talent Pipeline</div>
+        </div>
+
+        <div class="split-grid">
+          <div class="technical">
+            <h3 class="lane-title green">Technical Certification</h3>
+            <div class="steps">
+              <div class="step" data-step="1">
+                <strong>Professional Foundations</strong>
+                <span>AMG system, model patterns, lesson structure, and evidence-based diagnosis.</span>
+              </div>
+              <div class="step" data-step="2">
+                <strong>Level 1: Swing Assessment Certified</strong>
+                <span>Evaluate the player, identify the priority constraint, and build the first plan.</span>
+              </div>
+              <div class="step" data-step="3">
+                <strong>Level 2: Core Mechanics Certified</strong>
+                <span>Body, arms, club, sequencing, pressure, low point, face, path, speed, and strike.</span>
+              </div>
+              <div class="step" data-step="4">
+                <strong>Specialist Badges</strong>
+                <span>Advanced modules that let the instructor deepen into clear teaching lanes.</span>
+                <div class="specialists">
+                  <div class="badge">Ball Striking</div>
+                  <div class="badge">Distance</div>
+                  <div class="badge">Short Game / Scoring</div>
+                  <div class="badge">3D / Tech Diagnosis</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business">
+            <h3 class="lane-title gold">Instructor Business Training</h3>
+            <div class="steps">
+              <div class="step" data-step="$">
+                <strong>Lead Generation / Marketing</strong>
+                <span>Local demand, referral engines, offer hooks, campaign planning, and pipeline math.</span>
+              </div>
+              <div class="step" data-step="$">
+                <strong>In-Person Sales</strong>
+                <span>Assessment-to-plan conversion, consult structure, objection handling, and follow-up.</span>
+              </div>
+              <div class="step" data-step="$">
+                <strong>Pricing & Packaging Offers</strong>
+                <span>Lesson packs, retainers, coaching programs, semi-private models, and value framing.</span>
+              </div>
+              <div class="step" data-step="$">
+                <strong>Social Media Authority</strong>
+                <span>Proof-based content, lesson clips, technical education, and coach positioning.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="connector-label">Technical skill plus business proof unlocks certification</div>
+
+        <div class="combined">
+          <div class="milestone green">
+            <strong>AMG Certified Instructor</strong>
+            <span>Passes technical exam, case study review, teaching-video review, and business basics.</span>
+          </div>
+          <div class="milestone green">
+            <strong>AMG Elite Instructor</strong>
+            <span>Proves outcomes across multiple students, cohorts, and skill categories.</span>
+          </div>
+          <div class="milestone gold">
+            <strong>Placement Eligible</strong>
+            <span>Approved for AMG-recommended roles inside partner and owned facilities.</span>
+          </div>
+        </div>
+
+        <div class="arrow-down">↓</div>
+
+        <div class="milestone green">
+          <strong>AMG Facility Lead Instructor</strong>
+          <span>Runs the coaching department standard: assessments, programming, coach QA, student outcomes, and local reputation.</span>
+        </div>
+      </article>
+
+      <article class="path facility">
+        <div class="path-head">
+          <div>
+            <h2>Facility Owner / Operator Path</h2>
+            <p>Turns indoor golf locations into better-run training businesses with a stronger coaching department, clearer offers, and access to AMG-certified talent.</p>
+          </div>
+          <div class="path-tag">Facility Network</div>
+        </div>
+
+        <h3 class="lane-title blue">Ownership, Operations, Marketing, and Coaching Department</h3>
+        <div class="facility-grid">
+          <div class="step" data-step="1">
+            <strong>Indoor Facility Foundations</strong>
+            <span>Market, offer model, simulator mix, staffing, member experience, and unit economics.</span>
+          </div>
+          <div class="step" data-step="2">
+            <strong>Facility Launch Certified</strong>
+            <span>Pre-sale, opening offer, onboarding, local partnerships, and first-90-day plan.</span>
+          </div>
+          <div class="step" data-step="3">
+            <strong>Facility Operations Certified</strong>
+            <span>Scheduling, bay utilization, lesson flow, memberships, events, staff SOPs, and reporting.</span>
+          </div>
+          <div class="step" data-step="4">
+            <strong>Facility Marketing Certified</strong>
+            <span>Local lead generation, paid ads, content capture, referral systems, and retention campaigns.</span>
+          </div>
+          <div class="step" data-step="5">
+            <strong>Coaching Department Certified</strong>
+            <span>Assessment product, lesson packages, coach standards, student tracking, and QA.</span>
+          </div>
+          <div class="step" data-step="6">
+            <strong>Instructor Hiring & Placement Ready</strong>
+            <span>Role design, compensation model, onboarding, reporting cadence, and performance targets.</span>
+          </div>
+        </div>
+
+        <div class="connector-label">Facility proof unlocks network status</div>
+
+        <div class="ladder">
+          <div class="milestone blue">
+            <strong>AMG Certified Facility Operator</strong>
+            <span>Can run the indoor training business with clear systems, a measurable coaching offer, and reliable local acquisition.</span>
+          </div>
+          <div class="milestone blue">
+            <strong>AMG Partner Facility</strong>
+            <span>Eligible for AMG branding, consulting, coaching-department standards, and certified instructor placement.</span>
+          </div>
+          <div class="milestone gold">
+            <strong>AMG Growth Facility</strong>
+            <span>Advanced partner tier with quarterly business reviews, network benchmarks, and priority instructor access.</span>
+          </div>
+          <div class="milestone blue">
+            <strong>Regional Training Hub</strong>
+            <span>Hosts certifications, live workshops, instructor evaluations, and AMG-approved local events.</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="bottom-network" aria-label="AMG talent and facility network">
+      <div class="network-title">
+        AMG Talent + Facility Network
+        <small>Where the flywheel becomes the business</small>
+      </div>
+      <div class="network-item">
+        <strong>Pay / Place Elite Instructors</strong>
+        <span>AMG can recommend, place, or compensate top certified instructors inside approved facilities.</span>
+      </div>
+      <div class="network-item">
+        <strong>Partner Facility License</strong>
+        <span>Facilities buy standards, training, playbooks, consulting, and brand-backed education.</span>
+      </div>
+      <div class="network-item">
+        <strong>Revenue Share + Consulting</strong>
+        <span>AMG can participate in coaching revenue, launch support, workshops, and growth retainers.</span>
+      </div>
+      <div class="network-item">
+        <strong>Annual Active Status</strong>
+        <span>Renew through CE, case evidence, standards review, and conduct requirements.</span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div><strong>Strategic principle:</strong> AMG does not only sell courses. AMG builds a professional operating system: education, proof, certification, placement, facility standards, and ongoing status.</div>
+      <div class="version">Draft v1 · July 1, 2026</div>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,1654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AMG Professional Academy Partner Strategy</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --soft-ink: #263241;
+      --muted: #667281;
+      --paper: #f5f3ee;
+      --panel: #ffffff;
+      --line: #d9ddd4;
+      --green: #1f7a5a;
+      --green-soft: #e7f4ee;
+      --blue: #285d8f;
+      --blue-soft: #e7f0f8;
+      --gold: #b9892d;
+      --gold-soft: #fff2d6;
+      --stone: #eef1f3;
+      --danger: #8b3f2f;
+      --shadow: 0 18px 42px rgba(17, 24, 39, 0.10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 9%, rgba(31, 122, 90, 0.12), transparent 28%),
+        radial-gradient(circle at 92% 16%, rgba(185, 137, 45, 0.13), transparent 30%),
+        linear-gradient(180deg, #faf9f6 0%, var(--paper) 100%);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .shell {
+      width: min(1500px, calc(100vw - 36px));
+      margin: 0 auto;
+      padding: 28px 0 44px;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 128px 1fr auto;
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .mark {
+      height: 72px;
+      border: 2px solid var(--ink);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 8px 8px 0 rgba(17, 24, 39, 0.09);
+    }
+
+    .mark strong {
+      display: block;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .mark span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .header p {
+      max-width: 890px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.42;
+    }
+
+    .status {
+      justify-self: end;
+      display: grid;
+      gap: 8px;
+      min-width: 232px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .status strong {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .status span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.28;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .metric {
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .path-overview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .path-card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 12px 28px rgba(17, 24, 39, 0.07);
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .path-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 7px;
+      background: var(--green);
+    }
+
+    .path-card.facility::before {
+      background: var(--blue);
+    }
+
+    .path-card .label {
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .path-card h2 {
+      margin-bottom: 8px;
+      padding-left: 3px;
+      font-size: 26px;
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+
+    .path-card p {
+      margin-bottom: 13px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.36;
+    }
+
+    .path-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 13px;
+    }
+
+    .path-steps span {
+      padding: 8px 9px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--soft-ink);
+      font-size: 11px;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .path-action {
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      min-height: 36px;
+      padding: 9px 12px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(420px, 0.65fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--shadow);
+    }
+
+    .map-panel {
+      padding: 16px;
+    }
+
+    .panel-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 14px;
+    }
+
+    .panel-kicker {
+      margin-bottom: 5px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .panel-title {
+      margin: 0;
+      color: var(--soft-ink);
+      font-size: 23px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .filter {
+      min-height: 34px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--soft-ink);
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 850;
+    }
+
+    .filter[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .search {
+      width: 100%;
+      min-height: 42px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 0 13px;
+      color: var(--soft-ink);
+      outline-color: var(--green);
+    }
+
+    .map {
+      display: grid;
+      gap: 14px;
+    }
+
+    .band {
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .band-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      background: var(--stone);
+    }
+
+    .band-head strong {
+      font-size: 14px;
+      line-height: 1.1;
+    }
+
+    .band-head span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lane-grid {
+      display: grid;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .lane-grid.two {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .lane-grid.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .lane {
+      min-width: 0;
+    }
+
+    .lane h3 {
+      margin: 0 0 8px;
+      padding: 8px 10px;
+      color: #fff;
+      font-size: 12px;
+      line-height: 1.1;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lane.instructor h3,
+    .band.instructor .band-head {
+      background: var(--green-soft);
+    }
+
+    .lane.instructor h3 {
+      background: var(--green);
+    }
+
+    .lane.business h3 {
+      background: var(--gold);
+    }
+
+    .lane.facility h3,
+    .band.facility .band-head {
+      background: var(--blue-soft);
+    }
+
+    .lane.facility h3 {
+      background: var(--blue);
+    }
+
+    .lane.network h3 {
+      background: var(--ink);
+    }
+
+    .node-stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .node {
+      width: 100%;
+      min-height: 82px;
+      text-align: left;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      padding: 11px 12px;
+      position: relative;
+      transition: border-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+    }
+
+    .node:hover,
+    .node:focus-visible {
+      border-color: var(--ink);
+      box-shadow: 0 12px 24px rgba(17, 24, 39, 0.11);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .node.active {
+      border-color: var(--ink);
+      box-shadow: inset 4px 0 0 var(--green), 0 12px 24px rgba(17, 24, 39, 0.10);
+    }
+
+    .node.facility.active {
+      box-shadow: inset 4px 0 0 var(--blue), 0 12px 24px rgba(17, 24, 39, 0.10);
+    }
+
+    .node.business.active,
+    .node.network.active {
+      box-shadow: inset 4px 0 0 var(--gold), 0 12px 24px rgba(17, 24, 39, 0.10);
+    }
+
+    .node .stage {
+      display: inline-block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .node strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.18;
+    }
+
+    .node small {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.22;
+    }
+
+    .detail {
+      position: sticky;
+      top: 18px;
+      padding: 20px;
+      min-height: 780px;
+    }
+
+    .detail-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 30px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      background: var(--stone);
+      color: var(--soft-ink);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .detail h2 {
+      margin: 16px 0 9px;
+      font-size: 31px;
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+
+    .detail-summary {
+      margin-bottom: 17px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.44;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 9px;
+      margin: 0 0 17px;
+    }
+
+    .spec {
+      display: grid;
+      grid-template-columns: 142px 1fr;
+      gap: 12px;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .spec dt {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .spec dd {
+      margin: 0;
+      color: var(--soft-ink);
+      font-size: 13px;
+      line-height: 1.33;
+      font-weight: 650;
+    }
+
+    .detail-section {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      margin-top: 14px;
+    }
+
+    .detail-section h3 {
+      margin: 0 0 9px;
+      font-size: 13px;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .detail-section ul {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding-left: 18px;
+      color: var(--soft-ink);
+      font-size: 13px;
+      line-height: 1.34;
+    }
+
+    .credibility {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .credibility .panel {
+      padding: 18px;
+    }
+
+    .credibility h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 1.08;
+    }
+
+    .credibility p,
+    .credibility li {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.42;
+    }
+
+    .credibility ul {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 0;
+      padding-left: 20px;
+    }
+
+    .economics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .econ {
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .econ strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.1;
+    }
+
+    .econ span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.28;
+    }
+
+    .empty {
+      padding: 18px;
+      border: 1px dashed var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1180px) {
+      .header,
+      .workspace,
+      .credibility,
+      .path-overview {
+        grid-template-columns: 1fr;
+      }
+
+      .status {
+        justify-self: stretch;
+      }
+
+      .detail {
+        position: static;
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .shell {
+        width: min(100vw - 24px, 680px);
+        padding-top: 18px;
+      }
+
+      .header,
+      .metrics,
+      .lane-grid.two,
+      .lane-grid.three,
+      .economics {
+        grid-template-columns: 1fr;
+      }
+
+      .header {
+        gap: 14px;
+      }
+
+      .mark {
+        width: 126px;
+      }
+
+      .panel-head {
+        grid-template-columns: 1fr;
+      }
+
+      .tools {
+        justify-content: flex-start;
+      }
+
+      .spec {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .shell {
+        width: 1500px;
+      }
+
+      .filter,
+      .search {
+        display: none;
+      }
+
+      .detail {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div class="mark" aria-label="Athletic Motion Golf">
+        <div>
+          <strong>AMG</strong>
+          <span>Academy</span>
+        </div>
+      </div>
+      <div>
+        <h1>Professional Academy Partner Strategy</h1>
+        <p>A professional-only certification and facility growth system for building elite instructors, partner facilities, and an AMG-led placement network.</p>
+      </div>
+      <aside class="status" aria-label="Strategy status">
+        <strong>Draft strategy ranges</strong>
+        <span>Prices and maintenance requirements are planning assumptions for partner discussion. They are not final public offers.</span>
+      </aside>
+    </header>
+
+    <section class="metrics" aria-label="Program summary">
+      <div class="metric">
+        <strong>2</strong>
+        <span>Primary paths</span>
+      </div>
+      <div class="metric">
+        <strong>27</strong>
+        <span>Clickable offers</span>
+      </div>
+      <div class="metric">
+        <strong>5</strong>
+        <span>Business modules</span>
+      </div>
+      <div class="metric">
+        <strong>1</strong>
+        <span>Placement network</span>
+      </div>
+    </section>
+
+    <section class="path-overview" aria-label="Two AMG professional academy paths">
+      <article class="path-card instructor">
+        <div class="label">Path 1 | Talent pipeline</div>
+        <h2>Instructor Path</h2>
+        <p>Develops AMG-certified instructors who can diagnose, teach, market, sell, retain students, prove outcomes, and eventually become placement-eligible.</p>
+        <div class="path-steps" aria-label="Instructor path stages">
+          <span>Shared Core</span>
+          <span>Technical Certification</span>
+          <span>Business Training</span>
+          <span>Certified Instructor</span>
+          <span>Elite Instructor</span>
+          <span>Placement Eligible</span>
+        </div>
+        <button class="path-action" data-path-filter="instructor">View Instructor Path</button>
+      </article>
+      <article class="path-card facility">
+        <div class="label">Path 2 | Facility network</div>
+        <h2>Facility Owner / Operator Path</h2>
+        <p>Helps indoor facility owners build a better operating system: launch, operations, marketing, coaching department, hiring readiness, and AMG partner status.</p>
+        <div class="path-steps" aria-label="Facility path stages">
+          <span>Facility Foundations</span>
+          <span>Launch</span>
+          <span>Operations</span>
+          <span>Marketing</span>
+          <span>Coaching Department</span>
+          <span>Partner Facility</span>
+        </div>
+        <button class="path-action" data-path-filter="facility">View Facility Path</button>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <section class="panel map-panel" aria-label="AMG professional academy growth chart">
+        <div class="panel-head">
+          <div>
+            <div class="panel-kicker">Growth chart</div>
+            <h2 class="panel-title">Instructor and facility owner/operator ladder</h2>
+          </div>
+          <div class="tools" aria-label="Filters">
+            <button class="filter" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter" data-filter="instructor" aria-pressed="false">Instructor</button>
+            <button class="filter" data-filter="business" aria-pressed="false">Business</button>
+            <button class="filter" data-filter="facility" aria-pressed="false">Facility</button>
+            <button class="filter" data-filter="network" aria-pressed="false">Network</button>
+          </div>
+        </div>
+        <input class="search" id="search" type="search" placeholder="Search offers, pricing, status requirements, or credibility standards" aria-label="Search offers">
+        <div class="map" id="map"></div>
+      </section>
+
+      <aside class="panel detail" id="detail" aria-live="polite"></aside>
+    </section>
+
+    <section class="credibility" aria-label="Credibility and economics model">
+      <article class="panel">
+        <div class="panel-kicker">Credibility model</div>
+        <h2>What makes the certification real</h2>
+        <p>AMG should make status mean something. The strongest version is not attendance-only. It should combine education, testing, proof, ongoing standards, and a public active-status directory.</p>
+        <ul>
+          <li>Exam gates: written test, diagnosis test, teaching-video review, and practical case review.</li>
+          <li>Proof gates: documented student outcomes, before/after evidence, and coach reflection notes.</li>
+          <li>Active status: annual renewal, continuing education, standards review, and code of conduct.</li>
+          <li>Placement protection: only Elite or Placement Eligible instructors enter AMG-recommended roles.</li>
+          <li>Facility QA: partner facilities maintain reporting, staffing standards, curriculum standards, and customer experience standards.</li>
+        </ul>
+      </article>
+      <article class="panel">
+        <div class="panel-kicker">Business model</div>
+        <h2>How the money can work</h2>
+        <p>The cleanest ecosystem has one-time education, annual active status, recurring facility support, and placement economics. That keeps the ladder valuable without forcing every offer into a subscription.</p>
+        <div class="economics">
+          <div class="econ">
+            <strong>One-time education</strong>
+            <span>Courses, cohorts, specialist badges, launch sprints, and business modules.</span>
+          </div>
+          <div class="econ">
+            <strong>Annual active status</strong>
+            <span>Renewal fee tied to CE, standards review, badge validity, and public directory listing.</span>
+          </div>
+          <div class="econ">
+            <strong>Recurring facility layer</strong>
+            <span>Partner facility license, coaching department support, consulting retainer, or revenue share.</span>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const offers = [
+      {
+        id: "professional-foundations",
+        category: "instructor",
+        path: "Shared Core",
+        stage: "Entry",
+        name: "AMG Professional Foundations",
+        short: "Required starting point for instructors and facility owners.",
+        summary: "A professional-only orientation to the AMG teaching language, model swings, diagnosis standards, student communication, and outcome tracking.",
+        price: "$497-$997 self-paced, or $1,500-$2,500 live cohort",
+        maintenance: "No annual fee as a standalone course. Counts toward active certification for one year if bundled with a certification path.",
+        credibility: "Completion quiz, standards agreement, and baseline swing-diagnosis submission.",
+        delivery: "Self-paced course plus optional live cohort and workbook.",
+        buyerGets: [
+          "AMG teaching vocabulary and diagnostic framework.",
+          "Core lesson structure and student intake templates.",
+          "Shared standard for future certifications and facility training."
+        ],
+        dependencies: [
+          "Best treated as the mandatory prerequisite for all certification paths.",
+          "Should be included in higher-ticket certification bundles."
+        ],
+        notes: "This creates the language layer. It should be accessible enough to widen the top of the professional funnel."
+      },
+      {
+        id: "level-1-swing-assessment",
+        category: "instructor",
+        path: "Instructor Technical Certification",
+        stage: "Level 1",
+        name: "Swing Assessment Certified",
+        short: "Teaches coaches to evaluate a golfer and identify the first priority constraint.",
+        summary: "A practical certification on intake, video capture, pattern recognition, constraint prioritization, and the first 30-day improvement plan.",
+        price: "$1,500-$2,500",
+        maintenance: "$199-$399 per year for active badge and directory listing.",
+        credibility: "Written exam, three swing-assessment submissions, and one reviewed student plan.",
+        delivery: "Course, live review session, certification exam, and submission portal.",
+        buyerGets: [
+          "AMG assessment checklist.",
+          "Priority-finding framework.",
+          "Student plan templates.",
+          "Level 1 badge after passing requirements."
+        ],
+        dependencies: [
+          "Requires AMG Professional Foundations.",
+          "Requires clean video capture standards."
+        ],
+        notes: "This is the likely flagship entry certification because it gives immediate practical value to any instructor."
+      },
+      {
+        id: "level-2-core-mechanics",
+        category: "instructor",
+        path: "Instructor Technical Certification",
+        stage: "Level 2",
+        name: "Core Mechanics Certified",
+        short: "Deep AMG swing mechanics training across body, arms, club, pressure, face, path, speed, and strike.",
+        summary: "The deep TPI-style instructor path for AMG, built around the complete swing model and the ability to explain cause, compensation, and priority.",
+        price: "$2,500-$4,500",
+        maintenance: "$299-$699 per year when held as an active instructor credential.",
+        credibility: "Mechanics exam, diagnosis exam, teaching-video review, and five case studies.",
+        delivery: "Multi-module certification, live Q&A, office hours, practical review, and exam.",
+        buyerGets: [
+          "Full AMG mechanics curriculum.",
+          "Fault-to-fix decision trees.",
+          "Teaching language for complex swing concepts.",
+          "Eligibility for specialist badges."
+        ],
+        dependencies: [
+          "Requires Level 1 active or recently completed.",
+          "Requires case-study evidence from real or sample students."
+        ],
+        notes: "This should become the main premium instructor certification and biggest strategic opportunity."
+      },
+      {
+        id: "ball-striking-specialist",
+        category: "instructor",
+        path: "Specialist Badge",
+        stage: "Specialist",
+        name: "Ball Striking Specialist",
+        short: "Advanced badge for strike, low point, compression, face control, and pattern improvement.",
+        summary: "A focused specialist offer for instructors who want a marketable ball-striking lane inside their coaching business.",
+        price: "$750-$1,500, or included in a $2,997-$4,997 specialist bundle",
+        maintenance: "Badge stays active only while core instructor status remains active.",
+        credibility: "Specialist exam plus three ball-striking case examples.",
+        delivery: "Focused course, drill library, diagnosis assignments, and badge exam.",
+        buyerGets: [
+          "Ball-striking diagnosis model.",
+          "Drill progressions and student-facing explanations.",
+          "Specialist badge for positioning."
+        ],
+        dependencies: [
+          "Recommended after Level 2.",
+          "Should require active Level 1 at minimum."
+        ],
+        notes: "Strong commercial positioning because instructors can sell it clearly to golfers."
+      },
+      {
+        id: "distance-specialist",
+        category: "instructor",
+        path: "Specialist Badge",
+        stage: "Specialist",
+        name: "Distance Specialist",
+        short: "Advanced badge for speed, launch, strike efficiency, driver patterns, and distance programming.",
+        summary: "A specialist product that gives coaches an AMG-backed system for distance improvement and premium speed coaching.",
+        price: "$750-$1,500, or included in a $2,997-$4,997 specialist bundle",
+        maintenance: "Badge stays active only while core instructor status remains active.",
+        credibility: "Specialist exam, distance case study, and launch-data interpretation task.",
+        delivery: "Course, speed programming templates, drill library, and assessment review.",
+        buyerGets: [
+          "Distance assessment framework.",
+          "Speed and launch improvement progressions.",
+          "Offer templates for distance coaching packages."
+        ],
+        dependencies: [
+          "Best paired with AMG Driver Fundamentals and Speed System IP.",
+          "Requires access to launch-data basics."
+        ],
+        notes: "Very attractive for facilities because distance programs are easy to market and package."
+      },
+      {
+        id: "short-game-specialist",
+        category: "instructor",
+        path: "Specialist Badge",
+        stage: "Specialist",
+        name: "Short Game / Scoring Specialist",
+        short: "Advanced badge for wedges, pitching, bunker play, trajectory, lies, and scoring programs.",
+        summary: "A specialist path that turns AMG short-game material into instructor certification, programming, and a facility-friendly coaching offer.",
+        price: "$750-$1,500, or included in a $2,997-$4,997 specialist bundle",
+        maintenance: "Badge stays active only while core instructor status remains active.",
+        credibility: "Specialist exam plus short-game lesson plan and student case evidence.",
+        delivery: "Course, shot library, practice plans, assessment templates, and badge exam.",
+        buyerGets: [
+          "Short-game diagnosis framework.",
+          "Scoring program templates.",
+          "Badge for marketing short-game coaching."
+        ],
+        dependencies: [
+          "Recommended after Level 1.",
+          "Requires access to a short-game practice environment or simulation plan."
+        ],
+        notes: "This helps avoid making the academy only about full-swing mechanics."
+      },
+      {
+        id: "tech-diagnosis-specialist",
+        category: "instructor",
+        path: "Specialist Badge",
+        stage: "Specialist",
+        name: "3D / Tech Diagnosis Specialist",
+        short: "Advanced badge for video, 3D, launch-monitor, pressure, and measured-data interpretation.",
+        summary: "A higher-credibility specialist product that teaches instructors how to use technology without letting technology replace coaching judgment.",
+        price: "$1,500-$3,500",
+        maintenance: "$299-$699 annual active status if sold as a standalone advanced credential.",
+        credibility: "Data interpretation exam, diagnosis defense, and two measured-data case studies.",
+        delivery: "Course, live review, data assignments, and practical exam.",
+        buyerGets: [
+          "AMG technology interpretation framework.",
+          "Data-to-coaching decision trees.",
+          "Advanced badge for premium market positioning."
+        ],
+        dependencies: [
+          "Best after Level 2.",
+          "Requires access to sample 3D/launch-monitor datasets or facility technology."
+        ],
+        notes: "This is where AMG can credibly differentiate from more generic coaching certifications."
+      },
+      {
+        id: "lead-generation-marketing",
+        category: "business",
+        path: "Instructor Business Training",
+        stage: "Business",
+        name: "Instructor Lead Generation / Marketing",
+        short: "Builds the instructor's local demand engine.",
+        summary: "A business module for creating consistent lesson demand through offers, referral systems, local partnerships, paid campaigns, and simple pipeline tracking.",
+        price: "$497-$1,500 standalone, or part of a $2,997-$5,000 business bundle",
+        maintenance: "No credential maintenance unless tied to active AMG Certified Instructor status.",
+        credibility: "Submit a local lead-generation plan and 30-day pipeline tracker.",
+        delivery: "Workshop, templates, ad examples, referral scripts, and campaign planner.",
+        buyerGets: [
+          "Lead source map.",
+          "Offer hooks and referral scripts.",
+          "Campaign calendar and tracking sheet."
+        ],
+        dependencies: [
+          "Should connect to the instructor's actual pricing and package model.",
+          "Facility-based instructors should align with facility marketing rules."
+        ],
+        notes: "This is essential because technical skill alone does not create commercially successful instructors."
+      },
+      {
+        id: "in-person-sales",
+        category: "business",
+        path: "Instructor Business Training",
+        stage: "Business",
+        name: "Instructor In-Person Sales",
+        short: "Turns assessments into paid coaching plans without making the instructor feel salesy.",
+        summary: "A consultative sales module for converting lesson assessments into appropriate programs, packages, and follow-up plans.",
+        price: "$497-$1,500 standalone, or part of a $2,997-$5,000 business bundle",
+        maintenance: "No annual fee as a standalone module.",
+        credibility: "Role-play assessment, consult script submission, and package recommendation exercise.",
+        delivery: "Workshop, role-play videos, script templates, and conversion tracking sheet.",
+        buyerGets: [
+          "Assessment-to-plan sales framework.",
+          "Objection handling library.",
+          "Follow-up scripts and close plan."
+        ],
+        dependencies: [
+          "Works best when paired with Swing Assessment Certified.",
+          "Requires clear coaching packages."
+        ],
+        notes: "This can sharply improve facility revenue because the assessment becomes the front door to programs."
+      },
+      {
+        id: "pricing-packaging",
+        category: "business",
+        path: "Instructor Business Training",
+        stage: "Business",
+        name: "Instructor Pricing & Packaging Offers",
+        short: "Helps instructors stop selling random one-off lessons.",
+        summary: "A business module for structuring paid offers: lesson packs, 90-day programs, semi-private groups, retainers, and facility coaching programs.",
+        price: "$497-$1,000 standalone, or part of a $2,997-$5,000 business bundle",
+        maintenance: "No annual fee as a standalone module.",
+        credibility: "Submit a menu of offers, pricing rationale, and student outcome promise.",
+        delivery: "Workshop, pricing calculator, package templates, and offer review.",
+        buyerGets: [
+          "Offer ladder templates.",
+          "Pricing calculator.",
+          "Program naming and positioning examples."
+        ],
+        dependencies: [
+          "Should be customized by market and facility economics.",
+          "Pairs with in-person sales and lead generation."
+        ],
+        notes: "This is one of the fastest paths to making AMG-certified instructors financially successful."
+      },
+      {
+        id: "social-media-authority",
+        category: "business",
+        path: "Instructor Business Training",
+        stage: "Business",
+        name: "Instructor Social Media Authority",
+        short: "Builds proof-based content habits for instructors.",
+        summary: "A module for turning lessons, before/after proof, technical education, and facility moments into content that creates trust and local demand.",
+        price: "$497-$1,500 standalone, or part of a $2,997-$5,000 business bundle",
+        maintenance: "No annual fee as a standalone module.",
+        credibility: "Submit a 30-day content calendar, three post drafts, and one case-study post.",
+        delivery: "Content framework, examples, scripts, editing checklist, and monthly posting plan.",
+        buyerGets: [
+          "Technical content angles.",
+          "Before/after proof template.",
+          "Local authority posting calendar."
+        ],
+        dependencies: [
+          "Requires student permission workflow for content use.",
+          "Facility-based instructors need brand approval rules."
+        ],
+        notes: "The credibility rule matters: do not turn coaches into generic influencers. Make them proof-led educators."
+      },
+      {
+        id: "student-retention-case-studies",
+        category: "business",
+        path: "Instructor Business Training",
+        stage: "Business",
+        name: "Student Retention & Case Study System",
+        short: "Makes student outcomes visible and repeatable.",
+        summary: "A module for onboarding, progress tracking, retention touchpoints, testimonials, and case-study documentation.",
+        price: "$497-$1,000 standalone, or included in business bundle",
+        maintenance: "No annual fee as a standalone module. Case-study submission can support active credential renewal.",
+        credibility: "Submit one complete student journey with plan, evidence, and outcome notes.",
+        delivery: "Templates, review process, retention calendar, and proof library structure.",
+        buyerGets: [
+          "Student progress tracker.",
+          "Case-study template.",
+          "Retention cadence and renewal prompts."
+        ],
+        dependencies: [
+          "Pairs with all technical certifications.",
+          "Requires clear student consent policy."
+        ],
+        notes: "This module connects business success to actual coaching outcomes, which is exactly where AMG can win."
+      },
+      {
+        id: "amg-certified-instructor",
+        category: "instructor",
+        path: "Instructor Status Tier",
+        stage: "Status",
+        name: "AMG Certified Instructor",
+        short: "The core credential after technical and business gates are met.",
+        summary: "A status tier for instructors who have completed the core education, passed exams, submitted teaching evidence, and shown basic business competency.",
+        price: "$500-$1,000 application/exam fee if not bundled",
+        maintenance: "$399-$799 per year for active status, directory listing, badge usage, CE, and standards review.",
+        credibility: "Level 1, Level 2, at least one business module, teaching-video review, case studies, and code of conduct.",
+        delivery: "Application review, exam, teaching review, badge, directory profile, and renewal portal.",
+        buyerGets: [
+          "AMG Certified Instructor badge.",
+          "Directory listing while active.",
+          "Eligibility for Elite review after proof threshold."
+        ],
+        dependencies: [
+          "Requires technical and business training.",
+          "Requires current standards agreement."
+        ],
+        notes: "This is the primary public-facing instructor credential. It must stay selective enough to mean something."
+      },
+      {
+        id: "amg-elite-instructor",
+        category: "instructor",
+        path: "Instructor Status Tier",
+        stage: "Elite",
+        name: "AMG Elite Instructor",
+        short: "Advanced status for proven instructors with documented results.",
+        summary: "A higher-status tier for instructors who show repeated student outcomes, strong communication, and the ability to represent AMG in premium environments.",
+        price: "$1,000-$2,500 review fee or invite-only cohort",
+        maintenance: "$799-$1,500 per year, including deeper review, CE, and active performance standards.",
+        credibility: "Multiple verified case studies, teaching-video defense, business results, references, and AMG review board approval.",
+        delivery: "Portfolio review, live defense, badge, directory tier, and network eligibility.",
+        buyerGets: [
+          "Elite badge and directory status.",
+          "Priority for workshops and placement.",
+          "Advanced coaching calls or review sessions."
+        ],
+        dependencies: [
+          "Requires active AMG Certified Instructor.",
+          "Requires outcome proof over time."
+        ],
+        notes: "This is the status tier that makes the placement network credible."
+      },
+      {
+        id: "placement-eligible",
+        category: "network",
+        path: "Instructor Placement Network",
+        stage: "Placement",
+        name: "Placement Eligible Instructor",
+        short: "Approved instructor status for AMG-recommended facility roles.",
+        summary: "A network status for elite instructors who meet AMG's technical, business, conduct, and professional standards for facility placement.",
+        price: "No instructor fee recommended, or small application fee. Monetize primarily through facility placement economics.",
+        maintenance: "Requires active Elite status, annual review, references, and conduct compliance.",
+        credibility: "Background/reference checks where appropriate, teaching proof, facility-readiness interview, and AMG approval.",
+        delivery: "Network profile, placement review, facility matching, and role-readiness standards.",
+        buyerGets: [
+          "Eligibility for AMG-recommended positions.",
+          "Partner facility introductions.",
+          "AMG-backed credibility in hiring conversations."
+        ],
+        dependencies: [
+          "Requires AMG Elite Instructor.",
+          "Requires facility role availability and market fit."
+        ],
+        notes: "This should be protected aggressively. If every instructor can be placed, the network loses value."
+      },
+      {
+        id: "facility-lead-instructor",
+        category: "network",
+        path: "Instructor Placement Network",
+        stage: "Lead",
+        name: "AMG Facility Lead Instructor",
+        short: "The lead coach role inside an AMG partner or owned facility.",
+        summary: "A premium instructor role responsible for coaching standards, assessments, student outcomes, junior coach QA, and local reputation inside a facility.",
+        price: "Facility-funded compensation model, placement fee, and possible AMG revenue participation.",
+        maintenance: "Active Elite status, quarterly performance review, student outcome tracking, and facility KPI review.",
+        credibility: "Must demonstrate teaching quality, business professionalism, student retention, and ability to run a coaching department.",
+        delivery: "Role design, onboarding, facility SOPs, KPI cadence, and AMG oversight.",
+        buyerGets: [
+          "Clear operating role for a high-performing instructor.",
+          "Facility coaching standard.",
+          "AMG-aligned local education leader."
+        ],
+        dependencies: [
+          "Requires partner facility demand.",
+          "Requires compensation and reporting model."
+        ],
+        notes: "This is where AMG can pay/place the best instructors and make facilities more successful at the same time."
+      },
+      {
+        id: "indoor-facility-foundations",
+        category: "facility",
+        path: "Facility Owner / Operator Path",
+        stage: "Foundation",
+        name: "Indoor Facility Foundations",
+        short: "Core business model for indoor golf operators.",
+        summary: "A foundational offer covering market positioning, bay economics, membership models, simulator mix, staffing, and facility offer design.",
+        price: "$997-$2,500",
+        maintenance: "No annual maintenance unless buyer wants active facility certification status.",
+        credibility: "Submit facility model, target market, revenue assumptions, and operating priorities.",
+        delivery: "Course, workbook, calculator, and optional review call.",
+        buyerGets: [
+          "Facility business model map.",
+          "Bay utilization and revenue calculator.",
+          "Offer menu planning worksheet."
+        ],
+        dependencies: [
+          "Can serve both existing and pre-launch facilities.",
+          "Should route strong candidates into Launch Certified."
+        ],
+        notes: "This is the broad entry product for facility owners and operators."
+      },
+      {
+        id: "facility-launch-certified",
+        category: "facility",
+        path: "Facility Owner / Operator Path",
+        stage: "Launch",
+        name: "Facility Launch Certified",
+        short: "Pre-sale, opening plan, launch offer, and first-90-day growth system.",
+        summary: "A launch-focused certification for facilities preparing to open or relaunch with clearer offers, stronger local demand, and better early revenue.",
+        price: "$3,000-$7,500",
+        maintenance: "No annual fee as a launch course. Counts toward active facility operator status for one year.",
+        credibility: "Launch plan review, opening offer, marketing calendar, and first-90-day KPI dashboard.",
+        delivery: "Cohort, launch templates, review calls, and launch checklist.",
+        buyerGets: [
+          "Pre-sale campaign plan.",
+          "Opening offer and onboarding sequence.",
+          "First-90-day operating dashboard."
+        ],
+        dependencies: [
+          "Requires facility concept, market, or existing location.",
+          "Marketing spend and local execution remain buyer responsibility."
+        ],
+        notes: "A high-leverage product because a facility's launch window is expensive to waste."
+      },
+      {
+        id: "facility-operations-certified",
+        category: "facility",
+        path: "Facility Owner / Operator Path",
+        stage: "Operations",
+        name: "Facility Operations Certified",
+        short: "Scheduling, bay utilization, memberships, staff SOPs, events, and reporting.",
+        summary: "An operator certification for running the facility with measurable utilization, clean member experience, reliable staffing, and practical reporting.",
+        price: "$2,500-$6,000",
+        maintenance: "$1,000-$3,000 per year if held as active facility certification.",
+        credibility: "Submit SOPs, utilization targets, membership model, event plan, and monthly reporting cadence.",
+        delivery: "Course, SOP library, KPI dashboard, operator reviews, and implementation checklist.",
+        buyerGets: [
+          "Operations SOP library.",
+          "Utilization and membership dashboard.",
+          "Event and staffing playbooks."
+        ],
+        dependencies: [
+          "Requires real or projected facility operations data.",
+          "Pairs with Facility Marketing Certified."
+        ],
+        notes: "This is the difference between indoor golf as real business and indoor golf as expensive space."
+      },
+      {
+        id: "facility-marketing-certified",
+        category: "facility",
+        path: "Facility Owner / Operator Path",
+        stage: "Marketing",
+        name: "Facility Marketing Certified",
+        short: "Local acquisition, content capture, paid ads, referrals, events, and retention campaigns.",
+        summary: "A facility growth certification focused on local lead generation, member acquisition, corporate/events demand, lessons demand, and retention.",
+        price: "$2,500-$7,500 plus ad spend",
+        maintenance: "$1,000-$3,000 per year if active facility status includes marketing review.",
+        credibility: "Submit local campaign plan, tracking setup, content cadence, offer calendar, and monthly reporting.",
+        delivery: "Workshop, campaign templates, content system, dashboard, and review calls.",
+        buyerGets: [
+          "Local marketing calendar.",
+          "Ad and referral campaign templates.",
+          "Content capture workflow and KPI dashboard."
+        ],
+        dependencies: [
+          "Requires offer clarity and tracking discipline.",
+          "Should align with instructor and coaching department offers."
+        ],
+        notes: "This can sit beside AMG's broader facility ownership/marketing offering."
+      },
+      {
+        id: "coaching-department-certified",
+        category: "facility",
+        path: "Facility Owner / Operator Path",
+        stage: "Coaching",
+        name: "Coaching Department Certified",
+        short: "Builds the facility's lesson business, assessment front door, packages, QA, and student tracking.",
+        summary: "A facility certification for turning instruction into a real department: assessment product, coaching packages, coach standards, retention, and reporting.",
+        price: "$3,000-$10,000",
+        maintenance: "$1,000-$3,000 per year for standards review, templates, and active facility listing.",
+        credibility: "Submit coaching menu, assessment workflow, student tracking process, coach QA plan, and sample reporting.",
+        delivery: "Course, consulting sprint, templates, department SOPs, and review calls.",
+        buyerGets: [
+          "Assessment product and sales flow.",
+          "Coaching package templates.",
+          "Coach QA and student outcome tracking."
+        ],
+        dependencies: [
+          "Requires at least one instructor or hiring plan.",
+          "Pairs directly with AMG instructor placement."
+        ],
+        notes: "This is the bridge between the facility path and the instructor placement vision."
+      },
+      {
+        id: "hiring-placement-ready",
+        category: "facility",
+        path: "Facility Owner / Operator Path",
+        stage: "Hiring",
+        name: "Instructor Hiring & Placement Ready",
+        short: "Prepares a facility to receive, compensate, and manage AMG-certified instructors.",
+        summary: "A readiness product for role design, compensation, onboarding, facility expectations, reporting, and performance management for instructors.",
+        price: "$1,500-$5,000",
+        maintenance: "Annual review recommended if facility remains in AMG placement network.",
+        credibility: "Submit role scorecard, compensation model, onboarding plan, and reporting cadence.",
+        delivery: "Readiness sprint, templates, review call, and placement profile.",
+        buyerGets: [
+          "Instructor role scorecard.",
+          "Compensation model options.",
+          "Onboarding and performance review templates."
+        ],
+        dependencies: [
+          "Requires facility capacity and budget.",
+          "Best after Coaching Department Certified."
+        ],
+        notes: "This keeps AMG from placing excellent instructors into weak operating environments."
+      },
+      {
+        id: "certified-facility-operator",
+        category: "facility",
+        path: "Facility Status Tier",
+        stage: "Status",
+        name: "AMG Certified Facility Operator",
+        short: "Status for operators who can run the business and coaching model to AMG standards.",
+        summary: "A facility status credential for operators who complete the core facility modules and maintain reporting, standards, and customer experience discipline.",
+        price: "$1,000-$2,500 application/review fee if not bundled",
+        maintenance: "$1,000-$3,000 per year for active status, listing, standards review, and updates.",
+        credibility: "Facility plan, SOPs, marketing system, coaching-department model, KPI dashboard, and standards agreement.",
+        delivery: "Review, badge, facility listing, renewal process, and standards updates.",
+        buyerGets: [
+          "AMG Certified Facility Operator status.",
+          "Eligibility for Partner Facility review.",
+          "Active listing while standards are maintained."
+        ],
+        dependencies: [
+          "Requires completed facility modules or equivalent review.",
+          "Requires ongoing KPI reporting."
+        ],
+        notes: "This is the facility equivalent of AMG Certified Instructor."
+      },
+      {
+        id: "partner-facility",
+        category: "facility",
+        path: "Facility Status Tier",
+        stage: "Partner",
+        name: "AMG Partner Facility",
+        short: "Higher-status facility tier with AMG standards, consulting, branding, and instructor placement access.",
+        summary: "A premium facility relationship that gives owners access to AMG standards, consulting, coaching department support, and certified instructor placement.",
+        price: "$10,000-$25,000 setup plus $1,000-$5,000 per month, or revenue-share model",
+        maintenance: "Recurring license, quarterly review, standards audit, brand compliance, and KPI reporting.",
+        credibility: "Facility audit, brand standards, active coaching department, reporting cadence, customer experience standards, and operator review.",
+        delivery: "Partner onboarding, playbooks, brand assets, review calls, placement access, and strategic support.",
+        buyerGets: [
+          "AMG Partner Facility status.",
+          "Access to placement-eligible instructors.",
+          "Consulting and coaching department support."
+        ],
+        dependencies: [
+          "Requires certified operator or equivalent review.",
+          "Requires strong enough facility economics to support recurring relationship."
+        ],
+        notes: "This is where AMG moves from course company to professional network and facility platform."
+      },
+      {
+        id: "growth-facility",
+        category: "facility",
+        path: "Facility Status Tier",
+        stage: "Growth",
+        name: "AMG Growth Facility",
+        short: "Advanced partner tier for facilities pursuing aggressive growth and deeper AMG support.",
+        summary: "A high-touch facility growth tier with quarterly business reviews, benchmarks, campaigns, coach development, and priority access to instructors.",
+        price: "$2,500-$10,000 per month, custom consulting, or revenue-share model",
+        maintenance: "Ongoing retainer or revenue share, quarterly reviews, monthly reporting, and standards compliance.",
+        credibility: "Consistent reporting, growth plan, facility leadership engagement, coach development cadence, and student outcome tracking.",
+        delivery: "Consulting retainer, growth reviews, campaign planning, benchmarks, and priority network access.",
+        buyerGets: [
+          "High-touch growth support.",
+          "Network benchmarks.",
+          "Priority instructor and workshop access."
+        ],
+        dependencies: [
+          "Requires Partner Facility status or equivalent commitment.",
+          "Requires owner/operator execution capacity."
+        ],
+        notes: "This should be selective. It is for facilities that can actually execute."
+      },
+      {
+        id: "regional-training-hub",
+        category: "network",
+        path: "Facility Network Tier",
+        stage: "Hub",
+        name: "Regional Training Hub",
+        short: "A facility that hosts AMG certification events, workshops, evaluations, and network activity.",
+        summary: "A top facility tier that gives AMG a regional education footprint without opening every location itself.",
+        price: "Custom. Potential $25,000+ annual license, event revenue share, or strategic partnership.",
+        maintenance: "Annual hub agreement, facility audit, event standards, staffing standards, and brand compliance.",
+        credibility: "Must maintain facility standards, event execution standards, coaching quality, and local reputation.",
+        delivery: "Hub agreement, event playbooks, certification hosting rights, and AMG support.",
+        buyerGets: [
+          "Regional authority position.",
+          "Certification and workshop hosting opportunities.",
+          "Deeper relationship with AMG network."
+        ],
+        dependencies: [
+          "Requires proven Partner or Growth Facility status.",
+          "Requires geographic and operational fit."
+        ],
+        notes: "This can become the physical distribution layer for AMG professional education."
+      },
+      {
+        id: "talent-facility-network",
+        category: "network",
+        path: "AMG Talent + Facility Network",
+        stage: "Network",
+        name: "AMG Talent + Facility Network",
+        short: "The marketplace layer connecting certified talent with certified facilities.",
+        summary: "The strategic flywheel: AMG trains instructors, certifies facilities, places elite instructors, supports facility growth, and protects standards through active status.",
+        price: "Facility placement fee of $5,000-$15,000, monthly network fee of $1,000-$3,000, and/or 5%-15% coaching revenue share",
+        maintenance: "Active status on both sides, placement standards, performance reviews, brand compliance, and dispute/removal policy.",
+        credibility: "Only active Elite instructors and approved facilities participate. Both sides must maintain standards.",
+        delivery: "Directory, matching process, placement agreements, onboarding, reporting, and account management.",
+        buyerGets: [
+          "A trusted instructor supply channel.",
+          "A vetted facility demand channel.",
+          "A defensible ecosystem AMG can own."
+        ],
+        dependencies: [
+          "Requires real certification standards before public launch.",
+          "Requires legal review of placement, employment, contractor, and revenue-share structure."
+        ],
+        notes: "This is the business-model breakthrough. Courses create education revenue; the network creates durable strategic control."
+      }
+    ];
+
+    const groups = [
+      {
+        title: "Shared Professional Core",
+        label: "Required entry",
+        className: "instructor",
+        lanes: [
+          { title: "Core", className: "instructor", ids: ["professional-foundations"] }
+        ]
+      },
+      {
+        title: "Instructor Path",
+        label: "Talent pipeline",
+        className: "instructor",
+        lanes: [
+          { title: "Technical Certification", className: "instructor", ids: ["level-1-swing-assessment", "level-2-core-mechanics", "ball-striking-specialist", "distance-specialist", "short-game-specialist", "tech-diagnosis-specialist"] },
+          { title: "Instructor Business Training", className: "business", ids: ["lead-generation-marketing", "in-person-sales", "pricing-packaging", "social-media-authority", "student-retention-case-studies"] }
+        ]
+      },
+      {
+        title: "Instructor Status + Placement",
+        label: "Status gates",
+        className: "instructor",
+        lanes: [
+          { title: "Certification Tiers", className: "instructor", ids: ["amg-certified-instructor", "amg-elite-instructor"] },
+          { title: "Placement Network", className: "network", ids: ["placement-eligible", "facility-lead-instructor"] }
+        ]
+      },
+      {
+        title: "Facility Owner / Operator Path",
+        label: "Facility network",
+        className: "facility",
+        lanes: [
+          { title: "Launch + Operations", className: "facility", ids: ["indoor-facility-foundations", "facility-launch-certified", "facility-operations-certified"] },
+          { title: "Growth + Coaching", className: "facility", ids: ["facility-marketing-certified", "coaching-department-certified", "hiring-placement-ready"] }
+        ]
+      },
+      {
+        title: "Facility Status + Network Layer",
+        label: "Partner ladder",
+        className: "facility",
+        lanes: [
+          { title: "Facility Status", className: "facility", ids: ["certified-facility-operator", "partner-facility", "growth-facility"] },
+          { title: "Network", className: "network", ids: ["regional-training-hub", "talent-facility-network"] }
+        ]
+      }
+    ];
+
+    const offerById = new Map(offers.map((offer) => [offer.id, offer]));
+    const map = document.getElementById("map");
+    const detail = document.getElementById("detail");
+    const search = document.getElementById("search");
+    const filters = Array.from(document.querySelectorAll(".filter"));
+    let activeFilter = "all";
+    let selectedId = location.hash ? location.hash.slice(1) : "level-2-core-mechanics";
+
+    function matchesFilter(offer) {
+      if (activeFilter === "all") return true;
+      return offer.category === activeFilter || offer.path.toLowerCase().includes(activeFilter);
+    }
+
+    function matchesSearch(offer) {
+      const term = search.value.trim().toLowerCase();
+      if (!term) return true;
+      return [
+        offer.name,
+        offer.path,
+        offer.stage,
+        offer.short,
+        offer.summary,
+        offer.price,
+        offer.maintenance,
+        offer.credibility,
+        offer.delivery,
+        offer.notes
+      ].join(" ").toLowerCase().includes(term);
+    }
+
+    function nodeButton(offer, laneClass) {
+      const activeClass = offer.id === selectedId ? " active" : "";
+      const classes = ["node", offer.category, laneClass, activeClass].join(" ");
+      return `
+        <button class="${classes}" data-id="${offer.id}" aria-pressed="${offer.id === selectedId}">
+          <span class="stage">${offer.stage} | ${offer.path}</span>
+          <strong>${offer.name}</strong>
+          <small>${offer.short}</small>
+        </button>
+      `;
+    }
+
+    function renderMap() {
+      const html = groups.map((group) => {
+        const lanes = group.lanes.map((lane) => {
+          const visible = lane.ids
+            .map((id) => offerById.get(id))
+            .filter((offer) => offer && matchesFilter(offer) && matchesSearch(offer));
+          if (!visible.length) return "";
+          return `
+            <div class="lane ${lane.className}">
+              <h3>${lane.title}</h3>
+              <div class="node-stack">${visible.map((offer) => nodeButton(offer, lane.className)).join("")}</div>
+            </div>
+          `;
+        }).filter(Boolean);
+        if (!lanes.length) return "";
+        const gridClass = lanes.length === 1 ? "" : lanes.length === 2 ? "two" : "three";
+        return `
+          <section class="band ${group.className}">
+            <div class="band-head">
+              <strong>${group.title}</strong>
+              <span>${group.label}</span>
+            </div>
+            <div class="lane-grid ${gridClass}">${lanes.join("")}</div>
+          </section>
+        `;
+      }).filter(Boolean).join("");
+      map.innerHTML = html || `<div class="empty">No offers match the current filter.</div>`;
+      map.querySelectorAll(".node").forEach((button) => {
+        button.addEventListener("click", () => {
+          selectOffer(button.dataset.id, true);
+        });
+      });
+    }
+
+    function list(items) {
+      return `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+    }
+
+    function renderDetail(offer) {
+      detail.innerHTML = `
+        <div class="detail-type">${offer.stage} | ${offer.path}</div>
+        <h2>${offer.name}</h2>
+        <p class="detail-summary">${offer.summary}</p>
+        <dl class="spec-grid">
+          <div class="spec">
+            <dt>Price point</dt>
+            <dd>${offer.price}</dd>
+          </div>
+          <div class="spec">
+            <dt>Maintenance</dt>
+            <dd>${offer.maintenance}</dd>
+          </div>
+          <div class="spec">
+            <dt>Credibility</dt>
+            <dd>${offer.credibility}</dd>
+          </div>
+          <div class="spec">
+            <dt>Delivery</dt>
+            <dd>${offer.delivery}</dd>
+          </div>
+        </dl>
+        <section class="detail-section">
+          <h3>Buyer gets</h3>
+          ${list(offer.buyerGets)}
+        </section>
+        <section class="detail-section">
+          <h3>Dependencies</h3>
+          ${list(offer.dependencies)}
+        </section>
+        <section class="detail-section">
+          <h3>Partner note</h3>
+          <ul><li>${offer.notes}</li></ul>
+        </section>
+      `;
+    }
+
+    function selectOffer(id, updateHash = false) {
+      const offer = offerById.get(id) || offerById.get("level-2-core-mechanics");
+      selectedId = offer.id;
+      renderDetail(offer);
+      renderMap();
+      if (updateHash) history.replaceState(null, "", `#${offer.id}`);
+    }
+
+    filters.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        filters.forEach((filter) => filter.setAttribute("aria-pressed", String(filter === button)));
+        renderMap();
+      });
+    });
+
+    document.querySelectorAll("[data-path-filter]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = filters.find((item) => item.dataset.filter === button.dataset.pathFilter);
+        if (filter) filter.click();
+        document.querySelector(".workspace").scrollIntoView({ block: "start" });
+      });
+    });
+
+    search.addEventListener("input", renderMap);
+    window.addEventListener("hashchange", () => selectOffer(location.hash.slice(1)));
+    selectOffer(selectedId);
+  </script>
+</body>
+</html>
