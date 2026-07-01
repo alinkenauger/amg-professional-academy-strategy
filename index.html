@@ -477,6 +477,22 @@
       padding: 10px;
     }
 
+    .flow-branch.instructor {
+      border-left: 5px solid var(--green);
+    }
+
+    .flow-branch.business {
+      border-left: 5px solid var(--gold);
+    }
+
+    .flow-branch.network {
+      border-left: 5px solid var(--ink);
+    }
+
+    .flow-branch.facility {
+      border-left: 5px solid var(--blue);
+    }
+
     .flow-branch strong {
       display: block;
       margin-bottom: 8px;
@@ -1140,7 +1156,7 @@
         path: "Instructor Technical Certification",
         stage: "Level 2",
         name: "Core Mechanics Certified",
-        short: "Deep AMG swing mechanics credential earned after Level 1 curriculum gates.",
+        short: "Deep AMG swing mechanics credential earned after Level 1 technical and business foundation gates.",
         summary: "The deep TPI-style instructor credential for AMG, built around the complete swing model and the ability to explain cause, compensation, and priority.",
         price: "$2,500-$4,500",
         maintenance: "$299-$699 per year when held as an active instructor credential.",
@@ -1155,7 +1171,8 @@
         dependencies: [
           "Requires Level 1 active or recently completed.",
           "Requires Core Swing Concepts Curriculum.",
-          "Requires Assessment to Coaching Plan Lab."
+          "Requires Assessment to Coaching Plan Lab.",
+          "Requires Business of Golf foundation modules."
         ],
         notes: "This should become the main premium instructor certification and biggest strategic opportunity."
       },
@@ -1372,11 +1389,11 @@
         path: "Instructor Status Tier",
         stage: "Level 3",
         name: "Level 3: AMG Certified Instructor",
-        short: "The core professional credential after Level 2, specialist curriculum, business curriculum, and teaching evidence.",
-        summary: "The first full AMG instructor status tier. Instructors reach Level 3 after Level 2, required specialist work, Business of Golf modules, teaching evidence, and case-study review.",
+        short: "The core professional credential after Level 2, specialist curriculum, and teaching evidence.",
+        summary: "The first full AMG instructor status tier. Instructors reach Level 3 after Level 2, required specialist work, teaching evidence, and case-study review.",
         price: "$500-$1,000 application/exam fee if not bundled",
         maintenance: "$399-$799 per year for active status, directory listing, badge usage, CE, and standards review.",
-        credibility: "Level 1, Level 2, required specialist curriculum, required Business of Golf modules, teaching-video review, case studies, and code of conduct.",
+        credibility: "Level 1, Level 2, required specialist curriculum, teaching-video review, case studies, and code of conduct.",
         delivery: "Application review, exam, teaching review, badge, directory profile, and renewal portal.",
         buyerGets: [
           "Level 3 AMG Certified Instructor badge.",
@@ -1386,7 +1403,6 @@
         dependencies: [
           "Requires Level 2.",
           "Requires specialist curriculum.",
-          "Requires required Business of Golf instructor-growth modules.",
           "Requires current standards agreement."
         ],
         notes: "This is the primary public-facing instructor credential. It must stay selective enough to mean something, and it should clearly sit at Level 3."
@@ -1898,47 +1914,22 @@
         className: "instructor",
         lanes: [
           {
-            title: "Level 1 to Level 2 path",
+            title: "Single instructor certification flow",
             className: "instructor",
-            note: "Level 1 earns the assessment credential. Then the instructor completes required curriculum before they can test into Level 2.",
-            ids: ["level-1-swing-assessment"],
-            branchTitle: "Required curriculum to unlock Level 2",
-            branchIds: ["core-swing-concepts-curriculum", "assessment-to-plan-lab"],
-            tailIds: ["level-2-core-mechanics"]
-          },
-          {
-            title: "Level 2 to Level 3 path",
-            className: "instructor",
-            note: "After Level 2, instructors deepen through specialty curriculum and required business curriculum before becoming full AMG Certified Instructors.",
-            ids: ["level-2-core-mechanics"],
-            branchTitle: "Specialty curriculum to unlock Level 3",
-            branchIds: ["ball-striking-specialist", "distance-specialist", "short-game-specialist", "tech-diagnosis-specialist"],
-            tailIds: ["amg-certified-instructor"]
-          },
-          {
-            title: "Level 3 to Level 4 path",
-            className: "instructor",
-            note: "Level 4 is not another course badge. It requires proof, live teaching review, and repeated student outcomes.",
-            ids: ["amg-certified-instructor"],
-            branchTitle: "Proof curriculum to unlock Level 4",
-            branchIds: ["case-study-practicum", "live-teaching-defense-lab"],
-            tailIds: ["amg-elite-instructor"]
-          },
-          {
-            title: "Level 4 to Level 5 placement path",
-            className: "network",
-            note: "Only proven instructors move into AMG-recommended roles. Level 5 is placement eligibility, not just another certificate.",
-            ids: ["amg-elite-instructor"],
-            branchTitle: "Required readiness to unlock Level 5",
-            branchIds: ["placement-readiness-curriculum"],
-            tailIds: ["placement-eligible", "facility-lead-instructor"]
-          },
-          {
-            title: "Business of Golf: Instructor Growth",
-            className: "business",
-            note: "Runs alongside the technical path. These modules make the instructor commercially successful, not just technically smart.",
-            branchTitle: "Required business curriculum before full instructor status",
-            branchIds: ["lead-generation-marketing", "in-person-sales", "pricing-packaging", "social-media-authority", "student-retention-case-studies"]
+            note: "Each credential appears once. Curriculum gates sit between levels so the path reads as earned progression, not repeated cards.",
+            steps: [
+              { type: "nodes", ids: ["level-1-swing-assessment"] },
+              { type: "branch", title: "Technical curriculum to unlock Level 2", className: "instructor", ids: ["core-swing-concepts-curriculum", "assessment-to-plan-lab"] },
+              { type: "branch", title: "Business of Golf foundations between Level 1 and Level 2", className: "business", ids: ["lead-generation-marketing", "pricing-packaging", "in-person-sales"] },
+              { type: "nodes", ids: ["level-2-core-mechanics"] },
+              { type: "branch", title: "Specialty curriculum to unlock Level 3", className: "instructor", ids: ["ball-striking-specialist", "distance-specialist", "short-game-specialist", "tech-diagnosis-specialist"] },
+              { type: "nodes", ids: ["amg-certified-instructor"] },
+              { type: "branch", title: "Advanced Business of Golf between Level 3 and Level 4", className: "business", ids: ["social-media-authority", "student-retention-case-studies"] },
+              { type: "branch", title: "Proof curriculum to unlock Level 4", className: "instructor", ids: ["case-study-practicum", "live-teaching-defense-lab"] },
+              { type: "nodes", ids: ["amg-elite-instructor"] },
+              { type: "branch", title: "Required readiness to unlock Level 5", className: "network", ids: ["placement-readiness-curriculum"] },
+              { type: "nodes", ids: ["placement-eligible", "facility-lead-instructor"] }
+            ]
           }
         ]
       },
@@ -2061,7 +2052,7 @@
       const branchOffers = visibleOffers(ids);
       if (!branchOffers.length) return "";
       return `
-        <div class="flow-branch">
+        <div class="flow-branch ${laneClass}">
           <strong>${title}</strong>
           <div class="flow-branch-grid">
             ${branchOffers.map((offer) => nodeButton(offer, laneClass)).join("")}
@@ -2070,7 +2061,34 @@
       `;
     }
 
+    function renderStep(step, fallbackClass) {
+      if (step.type === "branch") {
+        return branchBlock(step.title || "Curriculum gate", step.ids, step.className || fallbackClass);
+      }
+      const offersToRender = visibleOffers(step.ids);
+      if (!offersToRender.length) return "";
+      return connectedNodes(offersToRender, step.className || fallbackClass);
+    }
+
     function renderLane(lane) {
+      if (lane.steps) {
+        const steps = lane.steps.map((step) => renderStep(step, lane.className)).filter(Boolean);
+        if (!steps.length) return "";
+        const pieces = steps.flatMap((stepHtml, index) => (
+          index === steps.length - 1
+            ? [stepHtml]
+            : [stepHtml, `<div class="flow-arrow" aria-hidden="true"><span>&darr;</span></div>`]
+        ));
+
+        return `
+          <div class="flow-lane ${lane.className}">
+            <h3>${lane.title}</h3>
+            ${lane.note ? `<p>${lane.note}</p>` : ""}
+            <div class="flow-path">${pieces.join("")}</div>
+          </div>
+        `;
+      }
+
       const primary = visibleOffers(lane.ids);
       const branch = branchBlock(lane.branchTitle || "Branch", lane.branchIds, lane.className);
       const tail = visibleOffers(lane.tailIds);
