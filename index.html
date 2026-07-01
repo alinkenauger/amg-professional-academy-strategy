@@ -956,7 +956,7 @@
     }
 
     .header {
-      grid-template-columns: 112px minmax(0, 1fr) 290px;
+      grid-template-columns: 146px minmax(0, 1fr) 290px;
       gap: 18px;
       align-items: stretch;
       margin-bottom: 14px;
@@ -971,20 +971,18 @@
     .mark {
       height: 100%;
       min-height: 94px;
+      padding: 12px;
       border: 1px solid var(--ink);
       border-radius: var(--radius);
-      background: linear-gradient(180deg, #161a1c 0%, #0d0f10 100%);
-      color: #fff;
+      background: #fff;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
     }
 
-    .mark strong {
-      font-size: 31px;
-    }
-
-    .mark span {
-      color: #9dd8c2;
-      font-size: 10px;
+    .mark img {
+      display: block;
+      width: 100%;
+      max-width: 124px;
+      height: auto;
     }
 
     h1 {
@@ -1416,6 +1414,246 @@
       box-shadow: 0 22px 46px rgba(17, 20, 22, 0.2);
     }
 
+    .offer-badge {
+      position: relative;
+      min-height: 236px;
+      margin-bottom: 16px;
+      padding: 18px;
+      display: grid;
+      align-content: space-between;
+      gap: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 50% 34%, rgba(255,255,255,0.10), transparent 30%),
+        linear-gradient(145deg, #181d1b 0%, #090c0b 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 18px 34px rgba(0,0,0,0.23);
+      isolation: isolate;
+    }
+
+    .offer-badge::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image: url("assets/badges/amg-badge-concept-sheet.png");
+      background-size: 220% 220%;
+      background-position: 0 0;
+      opacity: 0.18;
+      filter: saturate(1.05) contrast(1.08);
+    }
+
+    .offer-badge::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.10), transparent 18%, transparent 82%, rgba(255,255,255,0.08)),
+        linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.48));
+    }
+
+    .offer-badge.prestige {
+      min-height: 272px;
+      border-color: rgba(220, 181, 94, 0.55);
+      background:
+        radial-gradient(circle at 50% 30%, rgba(220,181,94,0.20), transparent 30%),
+        linear-gradient(145deg, #202018 0%, #0b0e0c 100%);
+      box-shadow: inset 0 0 0 1px rgba(220,181,94,0.28), inset 0 1px 0 rgba(255,255,255,0.14), 0 20px 44px rgba(0,0,0,0.30);
+    }
+
+    .offer-badge.specialty::before {
+      background-position: 100% 0;
+      opacity: 0.20;
+    }
+
+    .offer-badge.business::before {
+      background-position: 0 100%;
+      opacity: 0.20;
+    }
+
+    .offer-badge.facility::before,
+    .offer-badge.network::before {
+      background-position: 100% 100%;
+      opacity: 0.20;
+    }
+
+    .offer-badge.course::before {
+      opacity: 0.10;
+      filter: grayscale(0.35) saturate(0.8);
+    }
+
+    .badge-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .badge-logo {
+      width: 96px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(157,216,194,0.42);
+      border-radius: 7px;
+      background: rgba(255,255,255,0.94);
+      color: #fff;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .badge-logo img {
+      display: block;
+      width: 76px;
+      height: auto;
+    }
+
+    .badge-level {
+      max-width: 176px;
+      padding: 7px 9px;
+      border: 1px solid rgba(255,255,255,0.17);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: #d8e5df;
+      font-size: 10px;
+      font-weight: 950;
+      line-height: 1.12;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .badge-seal {
+      width: 104px;
+      height: 104px;
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+      border: 2px solid rgba(220,181,94,0.68);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.08), transparent 58%),
+        linear-gradient(135deg, rgba(20,120,95,0.34), rgba(0,0,0,0.20));
+      color: #f6e6b4;
+      box-shadow: inset 0 0 0 8px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .badge-seal img {
+      width: 76%;
+      height: auto;
+      padding: 7px;
+      border-radius: 7px;
+      background: rgba(255,255,255,0.94);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .offer-badge.prestige .badge-seal {
+      width: 126px;
+      height: 126px;
+      border-width: 3px;
+      box-shadow: inset 0 0 0 9px rgba(0,0,0,0.26), inset 0 0 0 13px rgba(220,181,94,0.14), 0 0 0 1px rgba(255,255,255,0.10), 0 18px 32px rgba(0,0,0,0.26);
+    }
+
+    .offer-badge.specialty .badge-seal,
+    .offer-badge.business .badge-seal,
+    .offer-badge.facility .badge-seal,
+    .offer-badge.network .badge-seal,
+    .offer-badge.course .badge-seal {
+      border-color: rgba(203,211,207,0.56);
+      border-radius: 18px;
+      width: 90px;
+      height: 90px;
+      color: #f6f4ee;
+    }
+
+    .offer-badge.business .badge-seal {
+      border-color: rgba(220,181,94,0.62);
+      color: #f6e6b4;
+    }
+
+    .offer-badge.facility .badge-seal,
+    .offer-badge.network .badge-seal {
+      border-color: rgba(117,184,225,0.60);
+      color: #d9efff;
+    }
+
+    .badge-ribbon {
+      width: min(100%, 292px);
+      min-height: 34px;
+      margin: -14px auto 0;
+      display: grid;
+      place-items: center;
+      padding: 8px 14px;
+      border: 1px solid rgba(220,181,94,0.58);
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(20,120,95,0.95), rgba(11,72,57,0.95));
+      color: #fff5d7;
+      font-size: 11px;
+      font-weight: 950;
+      line-height: 1.08;
+      text-align: center;
+      text-transform: uppercase;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.23);
+    }
+
+    .offer-badge.specialty .badge-ribbon {
+      border-color: rgba(203,211,207,0.48);
+      background: linear-gradient(180deg, rgba(48,67,62,0.96), rgba(18,28,26,0.96));
+      color: #edf3f0;
+    }
+
+    .offer-badge.business .badge-ribbon {
+      border-color: rgba(220,181,94,0.60);
+      background: linear-gradient(180deg, rgba(189,132,40,0.98), rgba(105,69,18,0.98));
+      color: #fff8e7;
+    }
+
+    .offer-badge.facility .badge-ribbon,
+    .offer-badge.network .badge-ribbon {
+      border-color: rgba(117,184,225,0.54);
+      background: linear-gradient(180deg, rgba(44,111,152,0.98), rgba(19,57,82,0.98));
+      color: #edf8ff;
+    }
+
+    .badge-title {
+      margin: 0;
+      color: #fff;
+      font-size: 22px;
+      line-height: 1.04;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .offer-badge.prestige .badge-title {
+      font-size: 25px;
+      color: #fff5d7;
+    }
+
+    .badge-subtitle {
+      margin: 6px 0 0;
+      color: #c3cec8;
+      font-size: 11px;
+      font-weight: 780;
+      line-height: 1.25;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .badge-trim {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      opacity: 0.8;
+    }
+
+    .badge-trim span {
+      width: 8px;
+      height: 8px;
+      display: block;
+      clip-path: polygon(50% 0, 61% 34%, 98% 34%, 68% 55%, 79% 91%, 50% 70%, 21% 91%, 32% 55%, 2% 34%, 39% 34%);
+      background: #dcb55e;
+    }
+
     .detail-type {
       border-color: rgba(157, 216, 194, 0.34);
       border-radius: 999px;
@@ -1515,7 +1753,7 @@
       }
 
       .mark {
-        width: 112px;
+        width: 146px;
         min-height: 76px;
       }
 
@@ -1591,10 +1829,7 @@
   <main class="shell">
     <header class="header">
       <div class="mark" aria-label="Athletic Motion Golf">
-        <div>
-          <strong>AMG</strong>
-          <span>Academy</span>
-        </div>
+        <img src="assets/brand/amg-logo.png" alt="AMG">
       </div>
       <div>
         <h1>Professional Academy Partner Strategy</h1>
@@ -2706,8 +2941,85 @@
       return `<ul>${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
     }
 
+    function badgeInfo(offer) {
+      const isSpecialty = offer.path === "Specialist Badge";
+      const levelMatch = offer.stage.match(/^Level\s+(\d+)/);
+      const levelLabel = levelMatch ? `Level ${levelMatch[1]}` : "";
+      const isCredential = (
+        offer.name.includes("Certified") ||
+        offer.name.includes("Partner Facility") ||
+        offer.name.includes("Growth Facility") ||
+        offer.name.includes("Regional Training Hub") ||
+        offer.name.includes("Placement Eligible") ||
+        offer.name.includes("Facility Lead") ||
+        offer.path.includes("Status Tier") ||
+        offer.stage.startsWith("Level")
+      );
+      const style = isSpecialty
+        ? "specialty"
+        : offer.category === "business"
+          ? "business"
+          : offer.category === "facility"
+            ? "facility"
+          : offer.category === "network"
+              ? "network"
+              : isCredential
+                ? "certification"
+                : "course";
+      const specialtyLabel = offer.name
+        .replace(/\s+Specialist$/, "")
+        .replace(/\s*\/\s*/g, " + ");
+      const label = isSpecialty
+        ? `${specialtyLabel} Specialty`
+        : levelLabel
+          ? `AMG ${levelLabel} Certified`
+        : offer.category === "business"
+          ? "Business of Golf"
+          : offer.category === "facility"
+            ? (isCredential ? "AMG Facility Certification" : "AMG Facility Course")
+            : offer.category === "network"
+              ? "AMG Network Status"
+              : isCredential
+                ? "AMG Certified"
+                : offer.stage === "Curriculum Gate"
+                  ? "AMG Curriculum"
+                  : "AMG Academy Course";
+
+      return {
+        style,
+        prestige: isCredential && !isSpecialty,
+        label,
+        level: `${offer.stage} | ${offer.path}`
+      };
+    }
+
+    function renderBadge(offer) {
+      const badge = badgeInfo(offer);
+      const trim = badge.prestige ? `<div class="badge-trim" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>` : "";
+      return `
+        <section class="offer-badge ${badge.style}${badge.prestige ? " prestige" : ""}" aria-label="${offer.name} badge preview">
+          <div class="badge-top">
+            <div class="badge-logo" aria-label="AMG Academy">
+              <img src="assets/brand/amg-logo.png" alt="AMG">
+            </div>
+            <div class="badge-level">${badge.level}</div>
+          </div>
+          <div>
+            <div class="badge-seal" aria-hidden="true"><img src="assets/brand/amg-logo.png" alt=""></div>
+            <div class="badge-ribbon">${badge.label}</div>
+          </div>
+          <div>
+            <h3 class="badge-title">${offer.name}</h3>
+            <p class="badge-subtitle">${offer.stage}</p>
+            ${trim}
+          </div>
+        </section>
+      `;
+    }
+
     function renderDetail(offer) {
       detail.innerHTML = `
+        ${renderBadge(offer)}
         <div class="detail-type">${offer.stage} | ${offer.path}</div>
         <h2>${offer.name}</h2>
         <p class="detail-summary">${offer.summary}</p>
