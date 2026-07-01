@@ -246,7 +246,7 @@
 
     .workspace {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(420px, 0.65fr);
+      grid-template-columns: 1fr;
       gap: 18px;
       align-items: start;
     }
@@ -323,6 +323,171 @@
     .map {
       display: grid;
       gap: 14px;
+    }
+
+    .flowchart {
+      display: grid;
+      gap: 16px;
+    }
+
+    .flow-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .flow-legend span {
+      padding: 7px 9px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .flow-section {
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(17, 24, 39, 0.05);
+      overflow: hidden;
+    }
+
+    .flow-section.instructor {
+      border-left: 7px solid var(--green);
+    }
+
+    .flow-section.facility {
+      border-left: 7px solid var(--blue);
+    }
+
+    .flow-section.business {
+      border-left: 7px solid var(--gold);
+    }
+
+    .flow-section.network {
+      border-left: 7px solid var(--ink);
+    }
+
+    .flow-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--line);
+      background: var(--stone);
+    }
+
+    .flow-head strong {
+      display: block;
+      font-size: 16px;
+      line-height: 1.08;
+    }
+
+    .flow-head span {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .flow-body {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .flow-lane {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.92);
+      padding: 12px;
+    }
+
+    .flow-lane h3 {
+      margin: 0 0 5px;
+      font-size: 13px;
+      line-height: 1.1;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .flow-lane p {
+      max-width: 980px;
+      margin: 0 0 11px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .flow-path {
+      display: flex;
+      align-items: stretch;
+      flex-wrap: nowrap;
+      gap: 8px;
+      overflow-x: visible;
+      padding-bottom: 4px;
+    }
+
+    .flow-path .node {
+      flex: 1 1 172px;
+      min-width: 128px;
+      max-width: 235px;
+    }
+
+    .flow-arrow {
+      flex: 0 0 22px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .flow-branch {
+      flex: 2 1 390px;
+      border: 1px dashed rgba(17, 24, 39, 0.26);
+      background: rgba(245, 243, 238, 0.72);
+      padding: 10px;
+      min-width: 300px;
+    }
+
+    .flow-branch strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-weight: 950;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .flow-branch-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .flow-branch-grid .node {
+      min-height: 78px;
+      padding: 10px 11px;
+    }
+
+    .flow-branch-grid .node .stage {
+      margin-bottom: 5px;
+    }
+
+    .flow-note {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: var(--gold-soft);
+      color: var(--soft-ink);
+      font-size: 12px;
+      font-weight: 750;
+      line-height: 1.36;
     }
 
     .band {
@@ -682,6 +847,34 @@
         grid-template-columns: 1fr;
         gap: 6px;
       }
+
+      .flow-head {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-path {
+        flex-wrap: wrap;
+      }
+
+      .flow-path .node,
+      .flow-branch {
+        flex: 1 1 100%;
+        max-width: none;
+        min-width: 0;
+      }
+
+      .flow-arrow {
+        flex: 1 1 100%;
+        min-height: 20px;
+      }
+
+      .flow-arrow::before {
+        content: "";
+      }
+
+      .flow-branch-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media print {
@@ -729,11 +922,11 @@
         <span>Primary paths</span>
       </div>
       <div class="metric">
-        <strong>27</strong>
+        <strong>31</strong>
         <span>Clickable offers</span>
       </div>
       <div class="metric">
-        <strong>5</strong>
+        <strong>9</strong>
         <span>Business of Golf modules</span>
       </div>
       <div class="metric">
@@ -778,12 +971,13 @@
         <div class="panel-head">
           <div>
             <div class="panel-kicker">Growth chart</div>
-            <h2 class="panel-title">Instructor and facility owner/operator ladder</h2>
+            <h2 class="panel-title">Step-by-step credential flowchart</h2>
           </div>
           <div class="tools" aria-label="Filters">
             <button class="filter" data-filter="all" aria-pressed="true">All</button>
             <button class="filter" data-filter="instructor" aria-pressed="false">Instructor</button>
             <button class="filter" data-filter="business" aria-pressed="false">Business of Golf</button>
+            <button class="filter" data-filter="player" aria-pressed="false">Player Business</button>
             <button class="filter" data-filter="facility" aria-pressed="false">Facility</button>
             <button class="filter" data-filter="network" aria-pressed="false">Network</button>
           </div>
@@ -1444,6 +1638,98 @@
         notes: "This can become the physical distribution layer for AMG professional education."
       },
       {
+        id: "player-sponsorship-nil",
+        category: "player",
+        path: "Business of Golf: Player Curriculum",
+        stage: "Player Business",
+        name: "Player Sponsorship & NIL",
+        short: "Player-facing course idea for sponsorship, NIL, local deals, and value creation.",
+        summary: "A non-certification Business of Golf course for competitive players who need to understand sponsorship, NIL, brand fit, deliverables, and how to create value for partners.",
+        price: "$97-$497 self-paced, or included in a player business bundle",
+        maintenance: "No annual maintenance. This is education, not an AMG professional credential.",
+        credibility: "Clear disclaimer that completion does not create instructor status. Credibility comes from templates, examples, and practical sponsorship deliverables.",
+        delivery: "Self-paced course, sponsorship templates, example outreach, deliverable checklist, and optional live workshop.",
+        buyerGets: [
+          "Sponsorship positioning worksheet.",
+          "Outreach and follow-up templates.",
+          "Deliverable menu for local sponsors and NIL partners."
+        ],
+        dependencies: [
+          "Should be separate from the AMG instructor certification ladder.",
+          "Best paired with player brand and content curriculum."
+        ],
+        notes: "This belongs under Business of Golf, not under Professional Academy certification. Good product, different promise."
+      },
+      {
+        id: "player-tournament-budgeting",
+        category: "player",
+        path: "Business of Golf: Player Curriculum",
+        stage: "Player Business",
+        name: "Tournament Budgeting & Travel Planning",
+        short: "Player-facing course idea for money, scheduling, travel, and tournament decisions.",
+        summary: "A practical Business of Golf course for juniors, college players, mini-tour players, and serious competitors who need to plan tournament economics.",
+        price: "$97-$397 self-paced, or included in a player business bundle",
+        maintenance: "No annual maintenance. Update templates annually as costs and tournament options change.",
+        credibility: "Budget calculators, sample schedules, decision rules, and clear separation from performance coaching.",
+        delivery: "Course, spreadsheet calculators, tournament planning worksheet, and example season budgets.",
+        buyerGets: [
+          "Tournament budget calculator.",
+          "Travel planning checklist.",
+          "Season schedule decision framework."
+        ],
+        dependencies: [
+          "Requires current examples and realistic cost assumptions.",
+          "Should avoid financial promises or performance guarantees."
+        ],
+        notes: "This is a useful player product because golf careers often fail from bad economics, not only bad swings."
+      },
+      {
+        id: "player-brand-content",
+        category: "player",
+        path: "Business of Golf: Player Curriculum",
+        stage: "Player Business",
+        name: "Player Personal Brand & Content",
+        short: "Player-facing course idea for proof-led content, reputation, and audience building.",
+        summary: "A Business of Golf course that helps players build a credible public presence without becoming generic content people.",
+        price: "$97-$497 self-paced, or included in a player business bundle",
+        maintenance: "No annual maintenance. Refresh examples as platforms change.",
+        credibility: "Practical posting calendar, proof standards, permission rules, and examples from real golf contexts.",
+        delivery: "Course, content calendar, post templates, filming checklist, and optional live content review.",
+        buyerGets: [
+          "Player content pillars.",
+          "30-day posting calendar.",
+          "Sponsor-friendly proof and storytelling framework."
+        ],
+        dependencies: [
+          "Pairs with sponsorship/NIL curriculum.",
+          "Should include brand safety and eligibility guidelines."
+        ],
+        notes: "This can sit under Business of Golf without claiming to certify player performance or coaching ability."
+      },
+      {
+        id: "player-recruiting-career-roadmap",
+        category: "player",
+        path: "Business of Golf: Player Curriculum",
+        stage: "Player Business",
+        name: "Recruiting & Golf Career Roadmap",
+        short: "Player-facing course idea for college recruiting, career options, and decision making.",
+        summary: "A player-facing curriculum for mapping the realistic paths through junior golf, college recruiting, professional attempts, coaching, facility work, and golf business careers.",
+        price: "$197-$697 self-paced or cohort-based",
+        maintenance: "No annual maintenance. Content should be refreshed annually for recruiting rules and market changes.",
+        credibility: "Requires current recruiting guidance, guest experts where useful, and clear disclaimers around eligibility and outcomes.",
+        delivery: "Course, roadmap workbook, decision tree, outreach templates, and optional cohort calls.",
+        buyerGets: [
+          "Golf career path decision tree.",
+          "Recruiting outreach templates.",
+          "Reality-check worksheets for costs, skill, and timeline."
+        ],
+        dependencies: [
+          "Should be reviewed for current recruiting and eligibility norms before launch.",
+          "Must stay separate from instructor/facility certification status."
+        ],
+        notes: "This is the player-side doorway into Business of Golf. It widens the brand without weakening the pro credential."
+      },
+      {
         id: "talent-facility-network",
         category: "network",
         path: "AMG Talent + Facility Network",
@@ -1468,13 +1754,18 @@
       }
     ];
 
-    const groups = [
+    const flowSections = [
       {
         title: "Shared Professional Core",
-        label: "Required entry",
+        label: "Start here",
         className: "instructor",
         lanes: [
-          { title: "Core", className: "instructor", ids: ["professional-foundations"] }
+          {
+            title: "Universal prerequisite",
+            className: "instructor",
+            note: "Everyone starts here. This creates the AMG language layer before the path splits.",
+            ids: ["professional-foundations"]
+          }
         ]
       },
       {
@@ -1482,17 +1773,28 @@
         label: "Talent pipeline",
         className: "instructor",
         lanes: [
-          { title: "Technical Certification", className: "instructor", ids: ["level-1-swing-assessment", "level-2-core-mechanics", "ball-striking-specialist", "distance-specialist", "short-game-specialist", "tech-diagnosis-specialist"] },
-          { title: "Business of Golf: Instructor Growth", className: "business", ids: ["lead-generation-marketing", "in-person-sales", "pricing-packaging", "social-media-authority", "student-retention-case-studies"] }
-        ]
-      },
-      {
-        title: "Instructor Status + Placement",
-        label: "Status gates",
-        className: "instructor",
-        lanes: [
-          { title: "Certification Tiers", className: "instructor", ids: ["amg-certified-instructor", "amg-elite-instructor"] },
-          { title: "Placement Network", className: "network", ids: ["placement-eligible", "facility-lead-instructor"] }
+          {
+            title: "Technical certification sequence",
+            className: "instructor",
+            note: "This is the deep TPI-style path. Level 1 and Level 2 are the spine, specialist badges deepen the coach, then status gates unlock elite status.",
+            ids: ["level-1-swing-assessment", "level-2-core-mechanics"],
+            branchTitle: "Specialist curriculum / course ideas",
+            branchIds: ["ball-striking-specialist", "distance-specialist", "short-game-specialist", "tech-diagnosis-specialist"],
+            tailIds: ["amg-certified-instructor", "amg-elite-instructor"]
+          },
+          {
+            title: "Placement path",
+            className: "network",
+            note: "Only proven instructors move into AMG-recommended roles. This is where certification becomes talent placement.",
+            ids: ["placement-eligible", "facility-lead-instructor"]
+          },
+          {
+            title: "Business of Golf: Instructor Growth",
+            className: "business",
+            note: "Runs alongside the technical path. These modules make the instructor commercially successful, not just technically smart.",
+            branchTitle: "Required business curriculum before full instructor status",
+            branchIds: ["lead-generation-marketing", "in-person-sales", "pricing-packaging", "social-media-authority", "student-retention-case-studies"]
+          }
         ]
       },
       {
@@ -1500,17 +1802,57 @@
         label: "Facility network",
         className: "facility",
         lanes: [
-          { title: "Launch + Operations", className: "facility", ids: ["indoor-facility-foundations", "facility-launch-certified", "facility-operations-certified"] },
-          { title: "Growth + Coaching", className: "facility", ids: ["facility-marketing-certified", "coaching-department-certified", "hiring-placement-ready"] }
+          {
+            title: "Facility certification sequence",
+            className: "facility",
+            note: "This path turns an indoor golf location into an operating system: launch, operations, marketing, coaching department, and hiring readiness.",
+            ids: [
+              "indoor-facility-foundations",
+              "facility-launch-certified",
+              "facility-operations-certified",
+              "facility-marketing-certified",
+              "coaching-department-certified",
+              "hiring-placement-ready"
+            ]
+          },
+          {
+            title: "Facility partner ladder",
+            className: "facility",
+            note: "After the operating system is credible, the facility can move into AMG status, partner access, and regional hub potential.",
+            ids: [
+              "certified-facility-operator",
+              "partner-facility",
+              "growth-facility",
+              "regional-training-hub"
+            ]
+          }
         ]
       },
       {
-        title: "Facility Status + Network Layer",
-        label: "Partner ladder",
-        className: "facility",
+        title: "Business of Golf: Player Curriculum",
+        label: "Non-certification product family",
+        className: "business",
         lanes: [
-          { title: "Facility Status", className: "facility", ids: ["certified-facility-operator", "partner-facility", "growth-facility"] },
-          { title: "Network", className: "network", ids: ["regional-training-hub", "talent-facility-network"] }
+          {
+            title: "Player-facing course ideas",
+            className: "business",
+            note: "These can live under Business of Golf, but they do not unlock AMG instructor status. Different buyer, different promise.",
+            branchTitle: "Player business curriculum",
+            branchIds: ["player-sponsorship-nil", "player-tournament-budgeting", "player-brand-content", "player-recruiting-career-roadmap"]
+          }
+        ]
+      },
+      {
+        title: "AMG Talent + Facility Network",
+        label: "Convergence",
+        className: "network",
+        lanes: [
+          {
+            title: "Where the paths meet",
+            className: "network",
+            note: "Elite instructors and qualified facilities converge here. This is the strategic flywheel, training, certification, placement, facility growth, and active status.",
+            ids: ["talent-facility-network"]
+          }
         ]
       }
     ];
@@ -1557,33 +1899,75 @@
       `;
     }
 
+    function visibleOffers(ids = []) {
+      return ids
+        .map((id) => offerById.get(id))
+        .filter((offer) => offer && matchesFilter(offer) && matchesSearch(offer));
+    }
+
+    function connectedNodes(offersToRender, laneClass) {
+      return offersToRender.map((offer, index) => {
+        const arrow = index === offersToRender.length - 1 ? "" : `<div class="flow-arrow" aria-hidden="true">&rarr;</div>`;
+        return `${nodeButton(offer, laneClass)}${arrow}`;
+      }).join("");
+    }
+
+    function branchBlock(title, ids, laneClass) {
+      const branchOffers = visibleOffers(ids);
+      if (!branchOffers.length) return "";
+      return `
+        <div class="flow-branch">
+          <strong>${title}</strong>
+          <div class="flow-branch-grid">
+            ${branchOffers.map((offer) => nodeButton(offer, laneClass)).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderLane(lane) {
+      const primary = visibleOffers(lane.ids);
+      const branch = branchBlock(lane.branchTitle || "Branch", lane.branchIds, lane.className);
+      const tail = visibleOffers(lane.tailIds);
+      if (!primary.length && !branch && !tail.length) return "";
+
+      const pieces = [];
+      if (primary.length) pieces.push(connectedNodes(primary, lane.className));
+      if (branch) {
+        if (pieces.length) pieces.push(`<div class="flow-arrow" aria-hidden="true">&rarr;</div>`);
+        pieces.push(branch);
+      }
+      if (tail.length) {
+        if (pieces.length) pieces.push(`<div class="flow-arrow" aria-hidden="true">&rarr;</div>`);
+        pieces.push(connectedNodes(tail, lane.className));
+      }
+
+      return `
+        <div class="flow-lane ${lane.className}">
+          <h3>${lane.title}</h3>
+          ${lane.note ? `<p>${lane.note}</p>` : ""}
+          <div class="flow-path">${pieces.join("")}</div>
+        </div>
+      `;
+    }
+
     function renderMap() {
-      const html = groups.map((group) => {
-        const lanes = group.lanes.map((lane) => {
-          const visible = lane.ids
-            .map((id) => offerById.get(id))
-            .filter((offer) => offer && matchesFilter(offer) && matchesSearch(offer));
-          if (!visible.length) return "";
-          return `
-            <div class="lane ${lane.className}">
-              <h3>${lane.title}</h3>
-              <div class="node-stack">${visible.map((offer) => nodeButton(offer, lane.className)).join("")}</div>
-            </div>
-          `;
-        }).filter(Boolean);
+      const html = flowSections.map((section) => {
+        const lanes = section.lanes.map(renderLane).filter(Boolean);
         if (!lanes.length) return "";
-        const gridClass = lanes.length === 1 ? "" : lanes.length === 2 ? "two" : "three";
         return `
-          <section class="band ${group.className}">
-            <div class="band-head">
-              <strong>${group.title}</strong>
-              <span>${group.label}</span>
+          <section class="flow-section ${section.className}">
+            <div class="flow-head">
+              <strong>${section.title}</strong>
+              <span>${section.label}</span>
             </div>
-            <div class="lane-grid ${gridClass}">${lanes.join("")}</div>
+            <div class="flow-body">${lanes.join("")}</div>
           </section>
         `;
       }).filter(Boolean).join("");
-      map.innerHTML = html || `<div class="empty">No offers match the current filter.</div>`;
+      map.innerHTML = html
+        ? `<div class="flow-legend"><span>Click any node for offer details below.</span><span>Dashed boxes are curriculum branches.</span><span>Player Business is not an instructor credential.</span></div><div class="flowchart">${html}</div>`
+        : `<div class="empty">No offers match the current filter.</div>`;
       map.querySelectorAll(".node").forEach((button) => {
         button.addEventListener("click", () => {
           selectOffer(button.dataset.id, true);
