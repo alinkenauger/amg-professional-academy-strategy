@@ -1437,7 +1437,7 @@
       position: absolute;
       inset: 0;
       z-index: -2;
-      background-image: url("assets/badges/amg-badge-concept-sheet.png");
+      background-image: url("assets/badges/amg-badge-plates-v2.png");
       background-size: 220% 220%;
       background-position: 0 0;
       opacity: 0.18;
@@ -1486,27 +1486,9 @@
 
     .badge-top {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 12px;
       align-items: flex-start;
-    }
-
-    .badge-logo {
-      width: 96px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(157,216,194,0.42);
-      border-radius: 7px;
-      background: rgba(255,255,255,0.94);
-      color: #fff;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-    }
-
-    .badge-logo img {
-      display: block;
-      width: 76px;
-      height: auto;
     }
 
     .badge-level {
@@ -1514,13 +1496,14 @@
       padding: 7px 9px;
       border: 1px solid rgba(255,255,255,0.17);
       border-radius: 999px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(9, 12, 11, 0.78);
       color: #d8e5df;
       font-size: 10px;
       font-weight: 950;
       line-height: 1.12;
-      text-align: right;
+      text-align: center;
       text-transform: uppercase;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
     }
 
     .badge-seal {
@@ -2999,9 +2982,6 @@
       return `
         <section class="offer-badge ${badge.style}${badge.prestige ? " prestige" : ""}" aria-label="${offer.name} badge preview">
           <div class="badge-top">
-            <div class="badge-logo" aria-label="AMG Academy">
-              <img src="assets/brand/amg-logo.png" alt="AMG">
-            </div>
             <div class="badge-level">${badge.level}</div>
           </div>
           <div>
