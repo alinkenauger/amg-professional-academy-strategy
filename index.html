@@ -424,35 +424,57 @@
     }
 
     .flow-path {
-      display: flex;
-      align-items: stretch;
-      flex-wrap: nowrap;
-      gap: 8px;
-      overflow-x: visible;
-      padding-bottom: 4px;
+      display: grid;
+      justify-items: center;
+      gap: 0;
+      padding: 2px 0 4px;
     }
 
     .flow-path .node {
-      flex: 1 1 172px;
-      min-width: 128px;
-      max-width: 235px;
+      width: min(100%, 360px);
+      min-height: 78px;
     }
 
     .flow-arrow {
-      flex: 0 0 22px;
+      width: 34px;
+      min-height: 30px;
       display: grid;
       place-items: center;
       color: var(--muted);
       font-size: 18px;
       font-weight: 950;
+      position: relative;
+    }
+
+    .flow-arrow::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: var(--line);
+      transform: translateX(-50%);
+    }
+
+    .flow-arrow span {
+      position: relative;
+      z-index: 1;
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: #fff;
+      line-height: 1;
     }
 
     .flow-branch {
-      flex: 2 1 390px;
+      width: min(100%, 790px);
       border: 1px dashed rgba(17, 24, 39, 0.26);
       background: rgba(245, 243, 238, 0.72);
       padding: 10px;
-      min-width: 300px;
     }
 
     .flow-branch strong {
@@ -850,26 +872,6 @@
 
       .flow-head {
         grid-template-columns: 1fr;
-      }
-
-      .flow-path {
-        flex-wrap: wrap;
-      }
-
-      .flow-path .node,
-      .flow-branch {
-        flex: 1 1 100%;
-        max-width: none;
-        min-width: 0;
-      }
-
-      .flow-arrow {
-        flex: 1 1 100%;
-        min-height: 20px;
-      }
-
-      .flow-arrow::before {
-        content: "";
       }
 
       .flow-branch-grid {
@@ -2050,7 +2052,7 @@
 
     function connectedNodes(offersToRender, laneClass) {
       return offersToRender.map((offer, index) => {
-        const arrow = index === offersToRender.length - 1 ? "" : `<div class="flow-arrow" aria-hidden="true">&rarr;</div>`;
+        const arrow = index === offersToRender.length - 1 ? "" : `<div class="flow-arrow" aria-hidden="true"><span>&darr;</span></div>`;
         return `${nodeButton(offer, laneClass)}${arrow}`;
       }).join("");
     }
@@ -2077,11 +2079,11 @@
       const pieces = [];
       if (primary.length) pieces.push(connectedNodes(primary, lane.className));
       if (branch) {
-        if (pieces.length) pieces.push(`<div class="flow-arrow" aria-hidden="true">&rarr;</div>`);
+        if (pieces.length) pieces.push(`<div class="flow-arrow" aria-hidden="true"><span>&darr;</span></div>`);
         pieces.push(branch);
       }
       if (tail.length) {
-        if (pieces.length) pieces.push(`<div class="flow-arrow" aria-hidden="true">&rarr;</div>`);
+        if (pieces.length) pieces.push(`<div class="flow-arrow" aria-hidden="true"><span>&darr;</span></div>`);
         pieces.push(connectedNodes(tail, lane.className));
       }
 
